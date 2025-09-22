@@ -4,5 +4,5 @@ It often happens that users disable JavaScript in their browser for security rea
 
 This system can be used as a basis for small business card websites, portfolios, documentation, and other resources that require convenient offline use.
 
-> Starter mini site: https://kirilllive.github.io/tuesday-js/only_HTML_CSS/Starter_mini_site/index.html
+> Starter mini site: https://github.com/Kirilllive/Only_HTML_CSS/blob/main/Starter_mini_site/index.html
 
