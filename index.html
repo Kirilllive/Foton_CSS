@@ -1,0 +1,53 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>The site is only in HTML & CSS (not JavaSript)</title>
+	<link rel="stylesheet" href="style.css">
+	<meta content="#004080" name="theme-color" charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+</head>
+<body>
+    <!-- page switch button -->
+    <a class="menu" href='#home' >Home</a>
+    <a class="menu" href='#page1'>Page 1</a>
+    <a class="menu" href='#gallery4'>Gallery 4</a>
+    <a class="menu" href='#gallery5'>Gallery 5</a>
+    <!-- content pages -->
+	<div class="page" id="home"  style="">Home</div>
+	<div class="page" id="page1" style="">Text</div>
+    <div class="page" id="gallery4" style="">Gallery
+        <!-- slide gallery -->
+       <ul class="gallery">
+        <li>
+            <input type="radio" name="gallery1" id="image1" checked="checked">
+            <label for="image1" style="background-image:url('img/113118214_p0_mini.jpg')"></label>
+            <div class="image" style="background-image:url('img/113118214_p0.jpg')"></div>
+        </li>
+        <li>
+            <input type="radio" name="gallery1" id="image2">
+            <label for="image2" style="background-image:url('img/120310076_p0_mini.jpg')"></label>
+            <div class="image" style="background-image:url('img/120310076_p0.jpg')"></div>
+        </li>
+        <li>
+            <input type="radio" name="gallery1" id="image3">
+            <label for="image3" style="background-image:url('img/135107170_p0_mini.jpg')"></label>
+            <div class="image" style="background-image:url('img/135107170_p0.jpg')"></div>
+        </li>
+      </ul>
+    </div>
+	<div class="page" id="gallery5" style="">Gallery
+       <ul class="gallery">
+        <li>
+            <input type="radio" name="gallery2" id="image4">
+            <label for="image4" style="background-image:url('img/102081146_p0_mini.jpg')"></label>
+            <div class="image" style="background-image:url('img/102081146_p0.jpg')"></div>
+        </li>
+        <li>
+            <input type="radio" name="gallery2" id="image5">
+            <label for="image5" style="background-image:url('img/98524739_p0_mini.jpg')"></label>
+            <div class="image" style="background-image:url('img/98524739_p0.jpg')"></div>
+        </li>
+      </ul>
+    </div>
+</body>
+</html>
