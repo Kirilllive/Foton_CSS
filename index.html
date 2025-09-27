@@ -1,53 +1,241 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>The site is only in HTML & CSS (not JavaSript)</title>
-	<link rel="stylesheet" href="style.css">
+	<title>Only HTML & CSS</title>
 	<meta content="#004080" name="theme-color" charset="UTF-8">
 	<meta name='viewport' content='width=device-width, initial-scale=1' />
 </head>
+<style>
+    :root {
+        --shadow:rgba(160,145,126,.8);
+        --light:rgba(255,255,255,.3);
+    }
+    *{
+        font-family:sans-serif;
+        line-height: 24px;
+        color:#fff;
+        border-collapse:collapse;
+        border:none;
+        margin:0;
+        padding:0;
+        border-spacing:0px;
+        outline:none;
+        text-decoration:none;
+        overscroll-behavior: none;
+        box-sizing: border-box;
+    }
+    body{
+        background:url("img/20241121_163857.jpg") no-repeat fixed center top ;
+        background-size: cover;
+        min-height:100vh;
+        max-width:1024px;
+        min-width:656px;
+        width:100%;
+        margin:0px auto;
+        padding:32px 0;
+        scrollbar-gutter: stable;
+    }
+    @supports selector(:has(*)){:not(:has(.page:target)) #home{display:block;}}
+    .page{
+        display:none;
+    }
+    .page:target{display:block;}
+    
+    .panel{
+        display:grid;
+        grid-template-columns:256px auto;
+        width:100vw;
+        max-width:1024px;
+        background-color:rgba(197,198,193,.3);
+        border-radius:16px;
+        box-shadow:0px 4px 25px var(--shadow);
+        backdrop-filter: blur(16px);
+        border-top:2px solid var(--light);
+        border-bottom:2px solid var(--light);
+    }
+    .content {
+        padding: 8px 32px 32px 16px;
+        position:relative;
+    }
+    .content:after{
+        z-index:-2;
+        content:"";
+        position:absolute;
+        left:0;top:12px;
+        display:block;
+        height:calc(100% - 24px);
+        width:100%;
+        border-left:1px solid var(--light);
+    }
+
+
+
+
+
+    .catalog {
+        padding: 8px;
+    }
+
+    .catalog summary {
+        padding: 8px 0;
+        cursor:pointer;
+        font-weight: bold;
+        border-bottom:1px solid var(--light);
+    }
+
+    .catalog a {
+        display:block;
+        padding: 6px 0 6px 14px;
+        margin:2px 0;
+        border-radius: 16px;
+    }
+
+    .catalog details:not(:last-child)[open] {
+        border-bottom:1px solid rgba(0,0,0,0.3);
+    }
+
+    .catalog details details {
+        display:block;
+        margin-left:16px;
+    }
+
+    .catalog details a {
+        display:block;
+        padding:6px 0 6px 26px;
+    }
+
+
+
+    .gallery input[type="radio"]{display:none;}
+    .gallery input[type="radio"]:checked + label {
+        background-repeat: no-repeat;
+        background-size: contain;
+        box-shadow:0px 0px 16px var(--light);
+        z-index:1000;
+    }
+    
+    .gallery input[type="radio"]:checked ~ .image {display:block;}
+
+    .gallery label{
+        display:block;
+        height: 92px; width: 92px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+        position: sticky;
+        border-radius:16px;
+    
+    }
+    .gallery {
+        display: flex;
+        justify-content: center;
+        padding-top:calc(100vh - 340px);
+        position:relative;
+        text-align: center;
+        list-style:none;
+        background-repeat: no-repeat;
+        background-size: contain;}
+
+    .gallery .image{
+        position: absolute;
+        left: 0px; top: 0;
+        width: 100%;
+        height: calc(100vh - 340px);
+        border-radius:8px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display:none;
+        object-fit: contain;
+    }
+    .gallery .slides{
+        padding-top:16px;
+        display:grid;
+        justify-items:center;
+        align-items:center;
+        width: max-content;
+        gap: 8px;
+    
+    }
+    
+</style>
 <body>
-    <!-- page switch button -->
-    <a class="menu" href='#home' >Home</a>
-    <a class="menu" href='#page1'>Page 1</a>
-    <a class="menu" href='#gallery4'>Gallery 4</a>
-    <a class="menu" href='#gallery5'>Gallery 5</a>
     <!-- content pages -->
-	<div class="page" id="home"  style="">Home</div>
-	<div class="page" id="page1" style="">Text</div>
-    <div class="page" id="gallery4" style="">Gallery
-        <!-- slide gallery -->
-       <ul class="gallery">
-        <li>
-            <input type="radio" name="gallery1" id="image1" checked="checked">
-            <label for="image1" style="background-image:url('img/113118214_p0_mini.jpg')"></label>
-            <div class="image" style="background-image:url('img/113118214_p0.jpg')"></div>
-        </li>
-        <li>
-            <input type="radio" name="gallery1" id="image2">
-            <label for="image2" style="background-image:url('img/120310076_p0_mini.jpg')"></label>
-            <div class="image" style="background-image:url('img/120310076_p0.jpg')"></div>
-        </li>
-        <li>
-            <input type="radio" name="gallery1" id="image3">
-            <label for="image3" style="background-image:url('img/135107170_p0_mini.jpg')"></label>
-            <div class="image" style="background-image:url('img/135107170_p0.jpg')"></div>
-        </li>
-      </ul>
+    
+    <div class="panel">
+		<div class="catalog">
+  
+
+            <a class="menu" href='#home' >Home</a>
+            <a class="menu" href='#gallery5'>Gallery 5</a>
+            <a class="menu" href='#page1'>Page 1</a>
+            <a class="menu" href='#gallery4'>Gallery 4</a>
+			<details open>
+				<summary>Home</summary>
+                <a class="menu" href='#home' >Home</a>
+                <a class="menu" href='#gallery5'>Gallery 5</a>
+                <a class="menu" href='#page1'>Page 1</a>
+                <a class="menu" href='#gallery4'>Gallery 4</a>
+			</details>
+    <!-- page switch button -->
+
+        </div>
+		<div class="content">
+  
+  
+
+            <div class="page" id="home"  style="">Home</div>
+            <div class="page" id="page1" style="">Text</div>
+            
+            <!-- Gallery -->
+            <div class="page" id="gallery4" style="">Gallery
+                <div class="gallery">
+                    <div class="slides" style="grid-template-columns:auto auto auto;">
+                        <div>
+                            <input type="radio" name="gallery1" id="image1" checked="checked">
+                            <label for="image1" style="background-image:url('img/113118214_p0_mini.jpg')"></label>
+                            <div class="image" style="background-image:url('img/113118214_p0.jpg')"></div>
+                        </div>
+                        <div>
+                            <input type="radio" name="gallery1" id="image2">
+                            <label for="image2" style="background-image:url('img/120310076_p0_mini.jpg')"></label>
+                            <div class="image" style="background-image:url('img/120310076_p0.jpg')"></div>
+                        </div>
+                        <div>
+                            <input type="radio" name="gallery1" id="image3">
+                            <label for="image3" style="background-image:url('img/135107170_p0_mini.jpg')"></label>
+                            <div class="image" style="background-image:url('img/135107170_p0.jpg')"></div>
+                        </div>
+                    </div>
+                </div>
+              
+              
+              
+            </div>
+            
+            <!-- Gallery -->
+            <div class="page" id="gallery5" style="">Gallery
+               <div class="gallery">
+                    <div class="slides" style="grid-template-columns:auto auto;">
+                    <div>
+                        <input type="radio" name="gallery2" id="image4">
+                        <label for="image4" style="background-image:url('img/102081146_p0_mini.jpg')"></label>
+                        <div class="image" style="background-image:url('img/102081146_p0.jpg')"></div>
+                    </div>
+                    <div>
+                        <input type="radio" name="gallery2" id="image5">
+                        <label for="image5" style="background-image:url('img/98524739_p0_mini.jpg')"></label>
+                        <div class="image" style="background-image:url('img/98524739_p0.jpg')"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+  
+  
+  
+        </div>
     </div>
-	<div class="page" id="gallery5" style="">Gallery
-       <ul class="gallery">
-        <li>
-            <input type="radio" name="gallery2" id="image4">
-            <label for="image4" style="background-image:url('img/102081146_p0_mini.jpg')"></label>
-            <div class="image" style="background-image:url('img/102081146_p0.jpg')"></div>
-        </li>
-        <li>
-            <input type="radio" name="gallery2" id="image5">
-            <label for="image5" style="background-image:url('img/98524739_p0_mini.jpg')"></label>
-            <div class="image" style="background-image:url('img/98524739_p0.jpg')"></div>
-        </li>
-      </ul>
-    </div>
+  
+
 </body>
 </html>
