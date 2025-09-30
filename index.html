@@ -43,7 +43,9 @@
     .page{
         display:none;
     }
-    .page:target{display:block;}
+    .page:target{display:block;
+	scroll-snap-align: start;
+	scroll-margin-top: 100px;}
     
     .panel{
         display:grid;
@@ -88,7 +90,7 @@
         border-radius: 16px;
     }
     .catalog details:not(:last-child)[open] {
-        border-bottom:1px solid var(--light);;
+        border-bottom:1px solid var(--light);
     }
     .catalog details details {
         display:block;
@@ -113,9 +115,19 @@
     .gallery input[type="radio"]{display:none;}
     .gallery input[type="radio"]:checked + label {
         background-repeat: no-repeat;
-        box-shadow:0px 0px 16px var(--light);
+        box-shadow:0px 0px 16px 4px var(--light);
         z-index:1000;
+        position:relative;
     }
+    .gallery input[type="radio"]:checked + label:after {
+        content:"";
+        height:100%;
+        width:calc(100%  - 16px);
+        position: absolute;
+        border-bottom:2px solid var(--light);
+        bottom:-8px;left:8px;
+    }
+    
     .gallery input[type="radio"]:checked ~ .image {display:block;}
     .gallery label{
         display:block;
@@ -158,6 +170,52 @@
     
     }
     
+	.navbar,.navbar ul{
+		white-space: nowrap;
+		background-color: var(--shadow);
+        backdrop-filter: blur(16px);
+        box-shadow:0px 4px 25px var(--shadow);
+		min-width: 128px;
+        width:min-content;
+        border-radius:8px;
+        outline:1px solid var(--light);
+        outline-offset:-1px;
+		list-style-type:none;
+	}
+    .navbar ul{
+		display: none;
+		position: absolute;
+		top: 0px;
+		left:calc(100% - 6px);
+    }
+	.navbar li:hover > ul {display: block;}
+	.navbar .folder:{
+        padding-right:20px;
+        position:relative;
+    }
+	.navbar .folder:after{
+        content:"\25b6";
+        font-size:10px;
+        position:absolute;
+        display: flex;
+        align-items:center;
+        right:0;top:0px;
+        height:100%;
+        width:16px;
+    }
+	.navbar li {
+		position: relative;
+		padding: 4px 8px;
+        cursor: pointer;
+	}
+	.navbar ul li{float:none;}
+	.navbar li:hover , .navbar ul li:hover {
+        background-color:#fff;
+        border-radius:8px;
+        color:#000;
+    }
+	  
+      
 </style>
 <body>
     <!-- content pages -->
@@ -168,6 +226,7 @@
 			<details open>
 				<summary>Components</summary>
                 <a class="menu" href='#gallery'>Gallery</a>
+                <a class="menu" href='#menu_bar'>Menu bar</a>
 			</details>
 			<details>
 				<summary>Tools</summary>
@@ -188,7 +247,7 @@
             
             <!-- Gallery -->
             <div class="page" id="gallery" style="">
-                <h1>Gallery<h1>
+                <h1>Gallery</h1>
                 
                 <!-- Example -->
                 <div class="gallery">
@@ -250,26 +309,77 @@
 &lt;ul class="gallery">
     &lt;!-- slides -->
     &lt;li>
-        &lt;input type="radio" name="gallery2" id="image4">
-        &lt;label for="image4">Slide button&lt;/label>
+        &lt;input type="radio" name="gallery1" id="image1">
+        &lt;label for="image1">Slide button&lt;/label>
         &lt;div class="image" style="background-color:#fcc">Slide content&lt;/div>
     &lt;/li>
     &lt;li>
-        &lt;input type="radio" name="gallery2" id="image5">
-        &lt;label for="image5">Slide button&lt;/label>
+        &lt;input type="radio" name="gallery1" id="image2">
+        &lt;label for="image2">Slide button&lt;/label>
         &lt;div class="image" style="background-color:#cfc">Slide content&lt;/div>
     &lt;/li>
     &lt;li>
-        &lt;input type="radio" name="gallery2" id="image6" checked="checked">
-        &lt;label for="image6">Slide button&lt;/label>
+        &lt;input type="radio" name="gallery1" id="image3" checked="checked">
+        &lt;label for="image3">Slide button&lt;/label>
         &lt;div class="image" style="background-color:#ccf">Slide content&lt;/div>
     &lt;/li>
 &lt;/ul></div>
-
-                
-                
             </div>
-  
+ 
+            <!-- menu bar -->
+            <div class="page" id="menu_bar">
+                <h1>Menu Bar</h1>
+                <div style="padding:8px 0px 180px 0px;">
+                    <ul class="navbar">
+                        <li class="folder">Menu<ul>
+                                <li>item</li>
+                                <li class="folder">folder<ul>
+                                        <li>item</li>
+                                        <hr>
+                                        <li>item</li>
+                                        <li>item</li>
+                                    </ul>
+                                </li>
+                                <li>item</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <h1>CSS</h1>
+<div class="show_code">.navbar, .navbar ul{
+    background-color: #aff;
+    width:min-content;
+    list-style-type: none;
+    padding:0;
+}
+.navbar li:hover > ul{display: block;}
+.navbar ul{
+    position:absolute;
+    display:none;
+    top:0px;
+    left:100%;
+}
+.navbar li{
+    position:relative;
+    padding:8px;
+}
+.navbar li:hover,.navbar ul li:hover{background-color:#faf;}</div>
+                <h1>HTML</h1>
+<div class="show_code">&lt;ul class="navbar">
+    &lt;li class="folder">folder&lt;ul>
+            &lt;li>item&lt;/li>
+            &lt;li class="folder">folder&lt;ul>
+                    &lt;li>item&lt;/li>
+                    &lt;li>item&lt;/li>
+                    &lt;li>item&lt;/li>
+                &lt;/ul>
+            &lt;/li>
+            &lt;li>item&lt;/li>
+        &lt;/ul>
+    &lt;/li>
+&lt;/ul></div>
+             </div>
+            
         </div>
     </div>
   
