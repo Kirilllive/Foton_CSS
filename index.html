@@ -7,7 +7,7 @@
 </head>
 <style>
     :root {
-        --shadow:rgba(97,119,143,.6);
+        --shadow:rgba(68,62,59,.6);
         --light:rgba(255,255,255,.5);
     }
     *{
@@ -53,7 +53,7 @@
         width:100vw;
         max-width:1024px;
         min-width:800px;
-        background-color:rgba(127,144,172,.5);
+        background-color:rgba(161,167,161,.5);
         border-radius:16px;
         box-shadow:0px 4px 25px var(--shadow);
         backdrop-filter: blur(16px);
@@ -115,8 +115,7 @@
     .gallery input[type="radio"]{display:none;}
     .gallery input[type="radio"]:checked + label {
         background-repeat: no-repeat;
-        box-shadow:0px 0px 16px 4px var(--light);
-        z-index:1000;
+         z-index:1000;
         position:relative;
     }
     .gallery input[type="radio"]:checked + label:after {
@@ -125,7 +124,7 @@
         width:calc(100%  - 16px);
         position: absolute;
         border-bottom:2px solid var(--light);
-        bottom:-8px;left:8px;
+        bottom:-4px;left:8px;
     }
     
     .gallery input[type="radio"]:checked ~ .image {display:block;}
@@ -227,12 +226,6 @@
 				<summary>Components</summary>
                 <a class="menu" href='#gallery'>Gallery</a>
                 <a class="menu" href='#menu_bar'>Menu bar</a>
-			</details>
-			<details>
-				<summary>Tools</summary>
-                <a class="menu" target='_blank' href='https://kirilllive.github.io/tuesday-js/tools/base64_converter.html'>Base64 converter</a>
-                <a class="menu" target='_blank' href='https://kirilllive.github.io/tuesday-js/tools/color_converter.html'>Color converter</a>
-                <a class="menu" target='_blank' href='https://kirilllive.github.io/tuesday-js/tools/ascii_paint.html'>ASCII Art Paint</a>
 			</details>
         <!-- page switch button -->
         </div>
