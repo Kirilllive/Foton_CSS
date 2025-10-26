@@ -136,6 +136,7 @@
         cursor: pointer;
         position: sticky;
         border-radius:16px;
+        background-color:var(--light);
     }
     .gallery {
         display: flex;
@@ -149,6 +150,7 @@
     }
     .gallery .image{
         position: absolute;
+        background-color:var(--light);
         left: 0px; top: 0;
         width: 100%;
         height: calc(100vh - 320px);
@@ -245,7 +247,7 @@
         height:0px;
         transition:
             height 1s,
-            content-visibility 1s normal;
+            content-visibility 1s allow-discrete;
     }
     .example_details details[open]::details-content {
         height:64px;
@@ -259,7 +261,7 @@
     .example_details summary::after {
         content: 'open';
     }
-    .example_details details[open] > summary::after {
+    .example_details details[open] summary::after {
         content: 'close';
     }
     
@@ -477,17 +479,23 @@
 <div class="show_code">.accordion details {
     overflow:hidden;
 }
-accordion details::details-content {
+.accordion details::details-content {
     height:0px;
     transition:
         height 1s,
-        content-visibility 1s normal;
+        content-visibility 1s allow-discrete;
 }
-accordion details[open]::details-content {
+.accordion details[open]::details-content {
     height:128px;
 }</div>
-
-                <h1>HTML</h1>
+                <h1>CSS Marker</h1>
+<div class="show_code">.accordion details summary {
+    display: flex;
+    justify-content: space-between;
+}
+.accordion summary::after {content:'open';}
+.accordion details[open] summary::after {content:'close';}</div>
+            <h1>HTML</h1>
             <div class="show_code">&lt;div class="accordion">
     &lt;details open>
         &lt;summary>item1&lt;/summary>
