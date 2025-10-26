@@ -61,7 +61,7 @@
         border-bottom:2px solid var(--light);
     }
     .content {
-        padding: 8px 32px 32px 16px;
+        padding: 8px 16px 32px 16px;
         position:relative;
     }
     .content:after{
@@ -213,19 +213,68 @@
         border-radius:8px;
         color:#000;
     }
-	  
-      
+    .save{
+        display:inline-block;
+        transform:translateY(3px);
+        background-image:url("data:image/svg+xml,%3csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10 6H13L8 11L3 6H6V1H10V6Z' fill='white'/%3e%3crect x='1' y='12' width='14' height='2' fill='white'/%3e%3c/svg%3e");
+        height:16px;
+        width:16px;
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-position:center;
+    }
+    .link{
+        display:inline-block;
+        transform:translateY(3px);
+        background-image:url("data:image/svg+xml,%3csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M4 12H14V14H2V2H4V12Z' fill='white'/%3e%3cpath d='M14 9L11.5 6.5L8 10L6 8L9.5 4.5L7 2H14V9Z' fill='white'/%3e%3c/svg%3e");
+        height:16px;
+        width:16px;
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-position:center;
+    }
+    .example_details details {
+        overflow:hidden;
+        margin-top:16px;
+        border-bottom:2px solid #fff;
+    }
+    .example_details details > p {
+        border-top:2px solid #fff;
+    }
+    .example_details details::details-content {
+        height:0px;
+        transition:
+            height 1s,
+            content-visibility 1s normal;
+    }
+    .example_details details[open]::details-content {
+        height:64px;
+    }
+    
+    .example_details > details summary {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+    }
+    .example_details summary::after {
+        content: 'open';
+    }
+    .example_details details[open] > summary::after {
+        content: 'close';
+    }
+    
 </style>
 <body>
     <!-- content pages -->
     <div class="panel">
 		<div class="catalog">
             <a class="menu" href='#main' >Main</a>
-            <a class="menu" href='#mini_site'>Mini portal</a>
+            <a class="menu" href='#multi_page'>Multi-page site</a>
 			<details open>
 				<summary>Components</summary>
                 <a class="menu" href='#gallery'>Gallery</a>
                 <a class="menu" href='#menu_bar'>Menu bar</a>
+                <a class="menu" href='#accordion'>Accordion</a>
 			</details>
         <!-- page switch button -->
         </div>
@@ -236,7 +285,45 @@
                 <p>For security reasons, many users disable JavaScript in their browsers. I often create small documentation websites where easy navigation and often offline functionality are crucial, and without scripting and back-end this is no easy task. So, I decided to gather all my experience in creating interactive websites without JS in one place.</p>
                 <p>I've observed that many developers rely too heavily on JavaScript when creating interfaces and often implement functionality that is already available in HTML and CSS without additional scripting. CSS has evolved significantly over the past 20 years, and I plan to collect examples of its capabilities here</p>
             </div>
-            <div class="page" id="mini_site" style="">Text</div>
+            <!-- multi_page -->
+            <div class="page" id="multi_page" style="">
+                <h1>Multi-page site</h1>
+                <p>Using the :target pseudo-class, you can style elements of an HTML page using the URL hash (the part of the URL that follows the pound sign #).</p>
+                <p>With its underlay, you can hide and show significant portions of a page's content. This allows you to transform a single-page website into a fully-fledged site with multiple pages that can be linked to via URLs, without the need for a backend or JavaScript.</p>
+                <p>This method isn't suitable for large portals with a lot of content or user-generated content. It's primarily suitable for smaller informational sites like documentation, portfolios or landing pages.</p>
+                <h1><a href='data:text/html;base64,PGh0bWw+Cgk8aGVhZD4KCQk8bWV0YSBjaGFyc2V0PSJVVEYtOCI+CgkJPHRpdGxlPkNTUyBvbmx5PC90aXRsZT4KICAgICAgICA8c3R5bGU+CiAgICAgICAgCiAgICAgICAgICAgIC8qIHN3aXRjaGluZyBwYWdlcyB1c2luZyB1cmwgaGFzIChCeSBkZWZhdWx0LCB0aGUgI2hvbWUgcGFnZSBpcyBkaXNwbGF5ZWQpICovCiAgICAgICAgICAgIEBzdXBwb3J0cyBzZWxlY3Rvcig6aGFzKCopKXs6bm90KDpoYXMoLnBhZ2U6dGFyZ2V0KSkgI2hvbWV7ZGlzcGxheTpibG9jazt9fQogICAgICAgICAgICAKICAgICAgICAgICAgLyogcGFnZSBzdHlsZSAqLwogICAgICAgICAgICAucGFnZXsKICAgICAgICAgICAgICAgIGRpc3BsYXk6bm9uZTsKICAgICAgICAgICAgICAgIGhlaWdodDo0MDBweDsKICAgICAgICAgICAgfQogICAgICAgICAgICAucGFnZTp0YXJnZXR7ZGlzcGxheTpibG9jazt9CiAgICAgICAgPC9zdHlsZT4KCTwvaGVhZD4KPGJvZHk+CgogICAgPCEtLSBwYWdlIHN3aXRjaCBidXR0b24gLS0+CiAgICA8YSBocmVmPScjaG9tZScgPkhvbWU8L2E+CiAgICA8YSBocmVmPScjaW5mbyc+SW5mbzwvYT4KICAgIDxhIGhyZWY9JyNhYm91dCc+QWJvdXQ8L2E+CiAgICAKICAgIDwhLS0gY29udGVudCBwYWdlcyAtLT4KCTxkaXYgY2xhc3M9InBhZ2UiIGlkPSJob21lIiAgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6I2ZhZiI+SG9tZSBwYWdlIGNvbnRlbnRzPC9kaXY+Cgk8ZGl2IGNsYXNzPSJwYWdlIiBpZD0iaW5mbyIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6I2ZhYSI+aW5mbyBwYWdlIGNvbnRlbnRzPC9kaXY+Cgk8ZGl2IGNsYXNzPSJwYWdlIiBpZD0iYWJvdXQiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNhZmEiPmFib3V0IHBhZ2UgY29udGVudHM8L2Rpdj4KPC9ib2R5Pgo8L2h0bWw+Cg==' download='Multi-Page_Site.html'><span class="save"></span> Download multi-page site</a></h1>
+                <h1>HTML</h1>
+                <div class="show_code">&lt;html>
+	&lt;head>
+		&lt;meta charset="UTF-8">
+		&lt;title>CSS only&lt;/title>
+        &lt;style>
+        
+            /* switching pages using url has (By default, the #home page is displayed) */
+            @supports selector(:has(*)){:not(:has(.page:target)) #home{display:block;}}
+            
+            /* page style */
+            .page{
+                display:none;
+                height:400px;
+            }
+            .page:target{display:block;}
+        &lt;/style>
+	&lt;/head>
+&lt;body>
+
+    &lt;!-- page switch button -->
+    &lt;a href='#home' >Home&lt;/a>
+    &lt;a href='#info'>Info&lt;/a>
+    &lt;a href='#about'>About&lt;/a>
+    
+    &lt;!-- content pages -->
+	&lt;div class="page" id="home"  style="background-color:#faf">Home page contents&lt;/div>
+	&lt;div class="page" id="info" style="background-color:#faa">info page contents&lt;/div>
+	&lt;div class="page" id="about" style="background-color:#afa">about page contents&lt;/div>
+&lt;/body>
+&lt;/html></div>
+            </div>
             
             <!-- Gallery -->
             <div class="page" id="gallery" style="">
@@ -373,9 +460,49 @@
 &lt;/ul></div>
              </div>
             
+            <!-- accordion -->
+            <div class="page" id="accordion">
+                <h1>Accordion ( details / summary )</h1>
+                <div class="example_details" style="display:block;width:100%;height:220px;">
+                    <details>
+                      <summary>item 1</summary>
+                      <p>item 1 html contents</p>
+                    </details>
+                    <details open>
+                      <summary>item 2</summary>
+                      <p>item 2 html contents</p>
+                    </details>
+                </div>
+                <h1>CSS Animation</h1>
+<div class="show_code">.accordion details {
+    overflow:hidden;
+}
+accordion details::details-content {
+    height:0px;
+    transition:
+        height 1s,
+        content-visibility 1s normal;
+}
+accordion details[open]::details-content {
+    height:128px;
+}</div>
+
+                <h1>HTML</h1>
+            <div class="show_code">&lt;div class="accordion">
+    &lt;details open>
+        &lt;summary>item1&lt;/summary>
+        &lt;p>item 1 contents&lt;/p>
+    &lt;/details>
+    &lt;details>
+        &lt;summary>item 2&lt;/summary>
+        &lt;p>item 2 contents&lt;/p>
+    &lt;/details>
+&lt;/div></div>
+            </div>
         </div>
     </div>
-  
+ 
+
 
 </body>
 </html>
