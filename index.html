@@ -36,7 +36,7 @@
         max-width:1024px;
         min-width:800px;
         margin:0px auto;
-        padding:32px 0;
+        padding:0;
         scrollbar-gutter: stable;
     }
     @supports selector(:has(*)){:not(:has(.page:target)) #main{display:block;}}
@@ -59,9 +59,10 @@
         backdrop-filter: blur(16px);
         border-top:2px solid var(--light);
         border-bottom:2px solid var(--light);
+        margin:64px 0 128px 0;;
     }
     .content {
-        padding: 8px 16px 32px 16px;
+        padding: 16px 16px 0px 16px;
         position:relative;
     }
     .content:after{
@@ -133,6 +134,7 @@
         height: 92px; width: 92px;
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center center;
         cursor: pointer;
         position: sticky;
         border-radius:16px;
@@ -268,6 +270,11 @@
                 <a class="menu" href='#gallery'>Gallery</a>
                 <a class="menu" href='#menu_bar'>Menu bar</a>
                 <a class="menu" href='#accordion'>Accordion</a>
+			</details>
+			<details open>
+				<summary>Design</summary>
+                <a class="menu" href='#refraction'>Refraction</a>
+                <a class="menu" href='#moving_background'>Moving background</a>
 			</details>
         <!-- page switch button -->
         </div>
