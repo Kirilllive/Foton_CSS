@@ -257,7 +257,13 @@
     .example_details details[open] summary::after {
         content: 'close';
     }
-    
+    @keyframes moving_bg {100%{background-position:-64px 64px;}}
+    .example_moving_bg{
+        border-radius:8px;
+        border:1px solid var(--light);
+        background:url("data:image/svg+xml,%3csvg width='64' height='64' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='64' height='64' fill='rgba(255,255,255,.25)'/%3e%3crect x='64' y='64' width='64' height='64' fill='rgba(255,255,255,.5)'/%3e%3c/svg%3e") repeat 0 0;
+        animation:moving_bg 4s infinite linear;
+    }
 </style>
 <body>
     <!-- content pages -->
@@ -506,6 +512,25 @@
     &lt;/details>
 &lt;/div></div>
             </div>
+
+            <!-- moving_background -->
+            <div class="page" id="moving_background">
+                <h1>Moving background</h1>
+                <div class="example_moving_bg" style="display:block;width:100%;height:220px;margin-bottom:20px;"></div>
+                <h1>CSS Animation</h1>
+<div class="show_code">/* Animation and direction of background change */
+@keyframes moving_bg {100%{background-position:-128px 128px;}}
+
+.moving_bg{
+    /* Image and other background options */
+    background: #000 url("data:image/svg+xml,%3csvg width='128' height='128' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='64' height='64' fill='%23fff'/%3e%3crect x='64' y='64' width='64' height='64' fill='%23fff'/%3e%3c/svg%3e") repeat 0 0;
+
+    /* Animation title, time and style */
+    animation:moving_bg 6s infinite linear;
+}</div>
+            </div>
+            
+            
         </div>
     </div>
  
