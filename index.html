@@ -32,11 +32,11 @@
         background:url("img/20241121_153937.jpg") no-repeat fixed center top ;
         background-size: cover;
         min-height:100vh;
-        width:100%;
+        width:100vw;
         max-width:1024px;
         min-width:800px;
         margin:0px auto;
-        padding:0;
+        padding:0 32px;
         scrollbar-gutter: stable;
     }
     @supports selector(:has(*)){:not(:has(.page:target)) #main{display:block;}}
@@ -50,7 +50,7 @@
     .panel{
         display:grid;
         grid-template-columns:256px auto;
-        width:100vw;
+        width:100%;
         max-width:1024px;
         min-width:800px;
         background-color:rgba(161,167,161,.5);
@@ -59,7 +59,7 @@
         backdrop-filter: blur(16px);
         border-top:2px solid var(--light);
         border-bottom:2px solid var(--light);
-        margin:64px 0 128px 0;;
+        margin:64px 0px 128px 0px;
     }
     .content {
         padding: 16px 16px 0px 16px;
@@ -143,7 +143,7 @@
     .gallery {
         display: flex;
         justify-content: center;
-        padding-top:calc(100vh - 320px);
+        height:520px;
         position:relative;
         text-align: center;
         list-style:none;
@@ -156,7 +156,7 @@
         background-color:var(--light);
         left: 0px; top: 0;
         width: 100%;
-        height: calc(100vh - 320px);
+        height: 420px;
         border-radius:8px;
         background-position: center center;
         background-repeat: no-repeat;
@@ -165,15 +165,12 @@
         object-fit: contain;
     }
     .gallery .slides{
-        padding-top:16px;
         display:grid;
         justify-items:center;
-        align-items:center;
+        align-items:end;
         width: max-content;
         gap: 8px;
-    
     }
-    
 	.navbar,.navbar ul{
 		white-space: nowrap;
 		background-color: var(--shadow);
