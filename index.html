@@ -275,7 +275,7 @@
 			</details>
 			<details open>
 				<summary>Design</summary>
-                <a class="menu" href='#refraction'>Refraction</a>
+                <a class="menu" href='#displacement'>Displacement</a>
                 <a class="menu" href='#moving_background'>Moving background</a>
 			</details>
         <!-- page switch button -->
@@ -525,12 +525,61 @@
     animation:moving_bg 6s infinite linear;
 }</div>
             </div>
-            
-            
+        
+            <!-- displacement -->
+            <div class="page" id="displacement">
+                <h1>Displacement Map</h1>
+                <p>Works only in Chrome and is unstable.</p>
+                <div class="example_moving_bg" style="display:flex;align-items: center;justify-content:center;width:100%;height:220px;margin-bottom:20px;">
+                    <svg width="0" height="0">
+                        <filter id="liquid-glass">
+                            <feImage result="noise" preserveAspectRatio="none" href="data:image/svg+xml,%3csvg id='myMap' width='100%' height='100%' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3e %3cdefs%3e  %3cstyle type='text/css'%3e.redGradient{fill:url(%23redGradient);}.blueGradient{fill: url(%23blueGradient);mix-blend-mode:screen;}.redSymbol{display: block;}.rectgray{width:calc(100% - 32px);height:calc(100% - 32px);x:16px;y:16px;}%3c/style%3e%3cfilter id='shadow2'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='8' /%3e  %3c/filter%3e  %3clinearGradient id='redGradient' x1='0' x2='1' y1='0' y2='0' color-interpolation='sRGB' gradientUnits='objectBoundingBox'%3e%3cstop offset='30%' stop-color='%23F77' /%3e%3cstop offset='70%' stop-color='%23F44' stop-opacity='0' /%3e%3c/linearGradient%3e%3clinearGradient id='blueGradient' x1='0' x2='0' y1='0' y2='1' color-interpolation='sRGB' gradientUnits='objectBoundingBox'%3e%3cstop offset='20%' stop-color='%2300F' /%3e%3cstop offset='80%' stop-color='%2308F' stop-opacity='0' /%3e%3c/linearGradient%3e%3crect class='redGradient' id='redGradientRect' width='100%' height='100%' x='0' y='0'/%3e%3c/defs%3e%3crect fill='%238B8B8B' width='100%' height='100%' x='0' y='0'/%3e%3cuse class='redSymbol' href='%23redGradientRect'/%3e%3crect class='blueGradient' fill='url(%23blueGradient)' width='100%' height='100%' x='0' y='0' /%3e%3crect class='rectgray' fill='%23BAB' filter='url(%23shadow2)'/%3e%3c/svg%3e"></feImage>
+                            <feDisplacementMap in="SourceGraphic" in2="MAP_RESULT" scale="80" xChannelSelector="R" yChannelSelector="B" />
+                        </filter>
+                    </svg>
+                    <div style="box-shadow:0px 4px 25px var(--shadow);width:128px;height:128px;background-color:rgba(255,255,255,.25);border-radius:16px;backdrop-filter:url(#liquid-glass);border-top:2px solid var(--light);border-bottom:2px solid var(--light);"></div>
+                </div>
+                <h1>HTML SVG</h1>
+<div class="show_code">&lt;!-- SVG Filter -->
+&lt;svg width="0" height="0">
+    &lt;filter id="liquid-glass">
+        &lt;!-- Image displacement or normal map -->
+        &lt;feImage result="noise" preserveAspectRatio="none" href="data:image/svg+xml,%3csvg id='myMap' width='100%' height='100%' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3e %3cdefs%3e  %3cstyle type='text/css'%3e.redGradient{fill:url(%23redGradient);}.blueGradient{fill: url(%23blueGradient);mix-blend-mode:screen;}.redSymbol{display: block;}.rectgray{width:calc(100% - 32px);height:calc(100% - 32px);x:16px;y:16px;}%3c/style%3e%3cfilter id='shadow2'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='8' /%3e  %3c/filter%3e  %3clinearGradient id='redGradient' x1='0' x2='1' y1='0' y2='0' color-interpolation='sRGB' gradientUnits='objectBoundingBox'%3e%3cstop offset='30%' stop-color='%23F77' /%3e%3cstop offset='70%' stop-color='%23F44' stop-opacity='0' /%3e%3c/linearGradient%3e%3clinearGradient id='blueGradient' x1='0' x2='0' y1='0' y2='1' color-interpolation='sRGB' gradientUnits='objectBoundingBox'%3e%3cstop offset='20%' stop-color='%2300F' /%3e%3cstop offset='80%' stop-color='%2308F' stop-opacity='0' /%3e%3c/linearGradient%3e%3crect class='redGradient' id='redGradientRect' width='100%' height='100%' x='0' y='0'/%3e%3c/defs%3e%3crect fill='%238B8B8B' width='100%' height='100%' x='0' y='0'/%3e%3cuse class='redSymbol' href='%23redGradientRect'/%3e%3crect class='blueGradient' fill='url(%23blueGradient)' width='100%' height='100%' x='0' y='0' /%3e%3crect class='rectgray' fill='%23BAB' filter='url(%23shadow2)'/%3e%3c/svg%3e">&lt;/feImage>
+        &lt;!-- filter parameters -->
+        &lt;feDisplacementMap in="SourceGraphic" in2="MAP_RESULT" scale="80" xChannelSelector="R" yChannelSelector="B" />
+    &lt;/filter>
+&lt;/svg>
+&lt;!-- An element of reconciliation -->
+&lt;div style="backdrop-filter:url(#liquid-glass);">&lt;/div></div>
+                <br><br>
+                <h1>Displacement Noise</h1>
+                <div class="example_moving_bg" style="display:flex;align-items: center;justify-content:center;width:100%;height:220px;margin-bottom:20px;">
+                    <svg width="0" height="0">
+                        <filter id="liquid-noise">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise" />
+                            <feDisplacementMap in="SourceGraphic" in2="noise" scale="50" xChannelSelector="R" yChannelSelector="G" />
+                        </filter>
+                    </svg>
+                    <div style="box-shadow:0px 4px 25px var(--shadow);width:128px;height:128px;background-color:rgba(255,255,255,.25);border-radius:16px;backdrop-filter:url(#liquid-noise);border-top:2px solid var(--light);border-bottom:2px solid var(--light);"></div>
+                </div>
+                <h1>HTML SVG</h1>
+<div class="show_code">&lt;!-- SVG Filter -->
+&lt;svg width="0" height="0">
+    &lt;filter id="liquid-noise">
+        &lt;!-- Fractal noise map -->
+        &lt;feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise" />
+        &lt;!-- filter parameters -->
+        &lt;feDisplacementMap in="SourceGraphic" in2="MAP_RESULT" scale="80" xChannelSelector="R" yChannelSelector="B" />
+    &lt;/filter>
+&lt;/svg>
+&lt;!-- An element of reconciliation -->
+&lt;div style="backdrop-filter:url(#liquid-noise);">&lt;/div></div>
         </div>
+        
+        
     </div>
- 
-
+    </div>
+    </div>
 
 </body>
 </html>
