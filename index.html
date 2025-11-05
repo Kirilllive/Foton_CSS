@@ -121,10 +121,10 @@
     .gallery input[type="radio"]:checked + label:after {
         content:"";
         height:100%;
-        width:calc(100%  - 16px);
+        width:calc(100%  - 8px);
         position: absolute;
         border-bottom:2px solid var(--light);
-        bottom:-4px;left:8px;
+        bottom:-4px;left:4px;
     }
     
     .gallery input[type="radio"]:checked ~ .image {display:block;}
@@ -136,7 +136,7 @@
         background-position: center center;
         cursor: pointer;
         position: sticky;
-        border-radius:16px;
+        border-radius:8px;
         background-color:var(--light);
     }
     .gallery {
@@ -334,7 +334,7 @@
                 
                 <!-- Example -->
                 <div class="gallery">
-                    <div class="slides" style="grid-template-columns:auto auto auto auto auto;">
+                    <div class="slides" style="grid-template-columns:auto auto auto auto auto auto;">
                         <div>
                             <input type="radio" name="gallery1" id="image2" checked="checked">
                             <label for="image2" style="background-image:url('img/my_trip_2.webp')"></label>
@@ -359,6 +359,11 @@
                             <input type="radio" name="gallery1" id="image5">
                             <label for="image5" style="background-image:url('img/my_trip_5.webp')"></label>
                             <div class="image" style="background-image:url('img/my_trip_5.webp')"></div>
+                        </div>
+                        <div>
+                            <input type="radio" name="gallery1" id="image6">
+                            <label for="image6" style="background-image:url('img/my_trip_6.webp')"></label>
+                            <div class="image" style="background-image:url('img/my_trip_6.webp')"></div>
                         </div>
                     </div>
                 </div>
