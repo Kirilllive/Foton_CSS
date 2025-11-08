@@ -236,8 +236,8 @@
     .example_details details::details-content {
         height:0px;
         transition:
-            height 1s,
-            content-visibility 1s allow-discrete;
+        height 1s,
+        content-visibility 1s allow-discrete;
     }
     .example_details details[open]::details-content {
         height:64px;
@@ -287,6 +287,80 @@
         left: -50%;
         position: absolute;
     }
+
+    .modal .controll:checked ~ .modal_bg {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .modal *{color:#000;}
+    body:has(.modal .controll:checked) {
+        overflow: hidden;
+    }
+    
+    .modal_window{
+        cursor:pointer;
+        display:flex;
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-position:center;
+        width: 128px;
+        height: 128px;
+        margin:auto;
+        padding:4px;
+        border-radius:16px;
+        box-shadow:0px 4px 25px var(--shadow);
+        align-items: end;
+        justify-content: center;
+    }
+    .modal .controll {display:none;}
+    .modal_bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color:rgba(161,167,161,.5);
+        backdrop-filter: blur(6px);
+        opacity: 0;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        transition: opacity 0.3s ease;
+        justify-content: center;
+        z-index: 1000;
+    }
+    .modal .window {
+        text-align:center;
+        background-color:rgba(220,220,220,.5);
+        position: relative;
+        padding: 8px;
+        max-width: 90vw;
+        max-height: 90vh;
+        width: 800px;
+        height: 640px;
+        box-shadow:0px 4px 25px var(--shadow);
+        border-radius:16px;
+        border-top:2px solid var(--light);
+        border-bottom:2px solid var(--light);
+    }
+    .modal .window h1{margin-bottom:7px;}
+    .modal .window div{
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-position:center;
+        width: 100%;
+        height: calc(100% - 28px);
+        border-radius:10px;
+    }
+
+    .modal .window label{
+        color:#000;
+        font-size:32px;
+        top:7px;right:8px;
+        cursor:pointer;
+        position: absolute;
+    }
+    
 </style>
 <body>
     <!-- content pages -->
@@ -299,6 +373,7 @@
                 <a class="menu" href='#gallery'>Gallery</a>
                 <a class="menu" href='#menu_bar'>Menu bar</a>
                 <a class="menu" href='#accordion'>Accordion</a>
+                <a class="menu" href='#modal_window'>Modal window</a>
 			</details>
 			<details open>
 				<summary>Design</summary>
@@ -364,6 +439,11 @@
                 <div class="gallery">
                     <div class="slides" style="grid-template-columns:auto auto auto auto auto auto;">
                         <div>
+                            <input type="radio" name="gallery1" id="image6">
+                            <label for="image6" style="background-image:url('img/my_trip_6.webp')"></label>
+                            <div class="image" style="background-image:url('img/my_trip_6.webp')"></div>
+                        </div>
+                        <div>
                             <input type="radio" name="gallery1" id="image2" checked="checked">
                             <label for="image2" style="background-image:url('img/my_trip_2.webp')"></label>
                             <div class="image" style="background-image:url('img/my_trip_2.webp')"></div>
@@ -382,16 +462,6 @@
                             <input type="radio" name="gallery1" id="image4">
                             <label for="image4" style="background-image:url('img/my_trip_4.webp')"></label>
                             <div class="image" style="background-image:url('img/my_trip_4.webp')"></div>
-                        </div>
-                        <div>
-                            <input type="radio" name="gallery1" id="image5">
-                            <label for="image5" style="background-image:url('img/my_trip_5.webp')"></label>
-                            <div class="image" style="background-image:url('img/my_trip_5.webp')"></div>
-                        </div>
-                        <div>
-                            <input type="radio" name="gallery1" id="image6">
-                            <label for="image6" style="background-image:url('img/my_trip_6.webp')"></label>
-                            <div class="image" style="background-image:url('img/my_trip_6.webp')"></div>
                         </div>
                     </div>
                 </div>
@@ -697,11 +767,99 @@
 &lt;/div></div>
         </div>
 
+            <!-- modal_window -->
+            <div class="page" id="modal_window">
+                <h1>Modal window</h1>
+                <div style="display:grid;grid-template-columns:auto auto auto; width:100%; height:220px; margin-bottom:20px;">
+                    <label class="modal_window" for="modal_window_1" style="background-image:linear-gradient(to bottom, transparent 40%, rgb(161,167,161)), url('img/my_trip_3.webp')">東京都 Tokyo</label>
+                    <label class="modal_window" for="modal_window_2" style="background-image:linear-gradient(to bottom, transparent 40%, rgb(161,167,161)), url('img/my_trip_6.webp')">香港 Hong Kong</label>
+                    <label class="modal_window" for="modal_window_3" style="background-image:linear-gradient(to bottom, transparent 40%, rgb(161,167,161)), url('img/my_trip_2.webp')">서울 Seoul</label>
+                </div>
+                <h1>CSS</h1>
+<div class="show_code">/* slide switch buttons */
+.modal .controll:checked ~ .modal_bg {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal .controll {display:none;}
+
+.modal_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+/* Window styles */
+.modal .window {
+    background-color:#fff;
+    padding: 16px;
+}</div>
+
+                <h1>CSS Disabling body scrolling</h1>
+<div class="show_code">body:has(.modal .controll:checked) {overflow: hidden;}</div>
+
+                <h1>HTML</h1>
+<div class="show_code">&lt;!-- Show window -->
+&lt;label for="modal_window_1">Show window&lt;/label>
+
+&lt;!-- element modal_window_1 -->
+&lt;div class="modal">
+    &lt;input type="checkbox" id="modal_window_1" class="controll">
+    &lt;div class="modal_bg">
+        &lt;!-- Modal window content -->
+        &lt;div class="window">
+            &lt;!-- Button close -->
+            &lt;label for="modal_window_1">Close&lt;/label>
+        &lt;/div>
+    &lt;/div>
+&lt;/div></div>
+            </div>
 
 
     
     </div>
     </div>
+    </div>
+
+
+    <div class="modal">
+        <input type="checkbox" id="modal_window_1" class="controll">
+        <div class="modal_bg">
+            <div class="window">
+                <label for="modal_window_1">&times;</label>
+                <h1>東京都 Tokyo</h1>
+                <div style="background-image:url('img/my_trip_3.webp')"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <input type="checkbox" id="modal_window_2" class="controll">
+        <div class="modal_bg">
+            <div class="window">
+                <label for="modal_window_2">&times;</label>
+                <h1>香港 Hong Kong</h1>
+                <div style="background-image:url('img/my_trip_6.webp')"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <input type="checkbox" id="modal_window_3" class="controll">
+        <div class="modal_bg">
+            <div class="window">
+                <label for="modal_window_3">&times;</label>
+                <h1>서울 Seoul</h1>
+                <div style="background-image:url('img/my_trip_2.webp')"></div>
+            </div>
+        </div>
     </div>
 
 </body>
