@@ -45,9 +45,11 @@
     .page{
         display:none;
     }
-    .page:target{display:block;
-	scroll-snap-align: start;
-	scroll-margin-top: 100px;}
+    .page:target{
+        display:block;
+        scroll-snap-align: start;
+        scroll-margin-top: 300px;
+    }
     
     .panel{
         display:grid;
@@ -362,9 +364,32 @@
         cursor:pointer;
         position: absolute;
     }
+
+    .type_writer {
+        font-family: monospace;
+        font-size:14px;
+        color:transparent;
+        background:
+            linear-gradient(270deg,#fff 2px,transparent 0) 6px 0,
+            linear-gradient(#fff);
+        background-size:calc(var(--n)*1ch) 100%;
+        background-clip:padding-box,text;
+        background-repeat:no-repeat;
+        animation:
+            end_cursor .5s infinite steps(1),
+            show_text calc(var(--n)*.04s) steps(var(--n)) infinite alternate;
+    }
+
+    @keyframes show_text{
+        from {background-size:0 200%}
+    }
+    @keyframes end_cursor{
+        50% {background-position:0 2ch,0 0}
+    }
     
 </style>
 <body>
+<!--    <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="800" height="260" style="object-fit: cover;margin-top:16px;"></div>-->
     <!-- content pages -->
     <div class="panel">
 		<div class="catalog">
@@ -379,6 +404,7 @@
 			</details>
 			<details open>
 				<summary>Design</summary>
+                <a class="menu" href='#typing_text'>Typing text</a>
                 <a class="menu" href='#moving_background'>Moving background</a>
                 <a class="menu" href='#parallax_background'>Parallax background</a>
                 <a class="menu" href='#displacement'>Displacement</a>
@@ -827,6 +853,33 @@
             </div>
 
 
+            <!-- typing_text -->
+            <div class="page" id="typing_text">
+                <h1>Typing text</h1>
+                <div style="display:block; width:100%; height:220px;">
+                    <span class="type_writer" style="--n:400">Although many modern typewriters have one of several similar designs, as with the automobile, the telephone, and telegraph, several people contributed insights and inventions that eventually resulted in ever more commercially successful instruments.<br>Historians have estimated that some form of the typewriter was invented 52 times as thinkers and tinkerers tried to come up with a workable design.</span>
+                </div>
+                <h1>HTML</h1>
+<div class="show_code">&lt;!-- It is advisable to specify the number of characters in --n: -->
+&lt;span class="type_writer" style="--n:66">Text to display&lt;/span></div>
+                <h1>CSS Animation</h1>
+<div class="show_code">.type_writer {
+    font-family: monospace;
+    font-size: 18px;
+    color: transparent;
+    /* color and style of displaying characters */
+    background:no-repeat left top / calc(var(--n)*1ch) 100% linear-gradient(#000);
+    background-clip: text;
+    /* speed and type of animation */
+    animation: show_symbols calc(var(--n)*.1s) steps(var(--n)) forwards;
+}
+
+@keyframes show_symbols{from{background-size:0 100%}}</div>
+            <br>
+            <h1><a href="https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3"><span class="link"></span> Full guide: https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3</a></h1>
+
+            </div>
+            
     
     </div>
     </div>
