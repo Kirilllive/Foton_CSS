@@ -32,7 +32,6 @@
         font-family:Arial;
         -webkit-tap-highlight-color: transparent;
     }
-    
     p, h1, .show_code{margin-bottom:20px;}
     h1{font-size:16px;}
     body{
@@ -45,7 +44,7 @@
         margin:0px auto;
         scrollbar-gutter: stable;
     }
-    @supports selector(:has(*)){:not(:has(.page:target)) #main{display:block;}}
+    @supports selector(:has(*)){:not(:has(.page:target)) #about{display:block;}}
     .page{
         display:none;
     }
@@ -67,7 +66,7 @@
         backdrop-filter: blur(16px);
         border-top:2px solid var(--light);
         border-bottom:2px solid var(--light);
-        margin:64px 0px 128px 0px;
+        margin:42px 0px 128px 0px;
     }
     .content {
         padding: 16px 16px 0px 16px;
@@ -394,11 +393,11 @@
     
 </style>
 <body>
-<!--    <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="800" height="260" style="object-fit: cover;margin-top:16px;"></div>-->
+    <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
     <!-- content pages -->
     <div class="panel">
 		<div class="catalog">
-            <a class="menu" href='#main' >Main</a>
+            <a class="menu" href='#about' >About</a>
             <a class="menu" href='#multi_page'>Multi-page site</a>
 			<details open>
 				<summary>Components</summary>
@@ -409,20 +408,28 @@
 			</details>
 			<details open>
 				<summary>Design</summary>
-                <a class="menu" href='#typing_text'>Typing text</a>
                 <a class="menu" href='#moving_background'>Moving background</a>
                 <a class="menu" href='#parallax_background'>Parallax background</a>
                 <a class="menu" href='#lava_effect'>Lava / Liquid effect</a>
                 <a class="menu" href='#displacement'>Displacement</a>
 			</details>
+			<details open>
+				<summary>Text</summary>
+                <a class="menu" href='#typing_text'>Typing text</a>
+			</details>
         <!-- page switch button -->
         </div>
 		<div class="content">
-            <!-- main -->
-            <div class="page" id="main">
+            <!-- about -->
+            <div class="page" id="about">
                 <p>Hi! My name is Kirill Live, and I develop web applications for creativity and work.</p>
                 <p>For security reasons, many users disable JavaScript in their browsers. I often create small documentation websites where easy navigation and often offline functionality are crucial, and without scripting and back-end this is no easy task. So, I decided to gather all my experience in creating interactive websites without JS in one place.</p>
                 <p>I've observed that many developers rely too heavily on JavaScript when creating interfaces and often implement functionality that is already available in HTML and CSS without additional scripting. CSS has evolved significantly over the past 20 years, and I plan to collect examples of its capabilities here</p>
+                <div style="text-align:center;margin:64px 0 16px 0;">
+                    <h1>You can support the project on Patreon or Boosty!</h1>
+                    <br><a href="https://www.patreon.com/kirill_live" target='_blank' draggable="false"><p><img src="img/patreon.svg" draggable="false"></p></a>
+                    <br><a href="https://boosty.to/kirilllive" target='_blank' draggable="false"><p><img src="img/boosty.svg" draggable="false"></p></a>
+                </div>
             </div>
             <!-- multi_page -->
             <div class="page" id="multi_page" style="">
@@ -714,7 +721,7 @@
 &lt;!-- An element of reconciliation -->
 &lt;div style="backdrop-filter:url(#liquid-noise);">&lt;/div></div>
             <br>
-            <h1><a href="https://kube.io/blog/liquid-glass-css-svg/"><span class="link"></span> Full guide: https://kube.io/blog/liquid-glass-css-svg/</a></h1>
+            <h1><a href="https://kube.io/blog/liquid-glass-css-svg/" target='_blank'><span class="link"></span> Full guide: https://kube.io/blog/liquid-glass-css-svg/</a></h1>
 
         </div>
         
@@ -882,7 +889,7 @@
 
 @keyframes show_symbols{from{background-size:0 100%}}</div>
             <br>
-            <h1><a href="https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3"><span class="link"></span> Full guide: https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3</a></h1>
+            <h1><a href="https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3" target='_blank'><span class="link"></span> Full guide: https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3</a></h1>
             </div>
 
             <!-- lava_effect -->
