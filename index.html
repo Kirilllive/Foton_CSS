@@ -391,6 +391,12 @@
         50% {background-position:0 2ch,0 0}
     }
     
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        .typing_text:after{content:"Your WebKit browser";font-size:20px;font-weight:bold;}
+    }
+    @media screen and (min--moz-device-pixel-ratio:0) {
+        .typing_text:after{content:"Your Mozilla browser";font-size:20px;font-weight:bold;}
+    }
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
@@ -399,6 +405,7 @@
 		<div class="catalog">
             <a class="menu" href='#about' >About</a>
             <a class="menu" href='#multi_page'>Multi-page site</a>
+            <a class="menu" href='#identify_browser'>Identify browser</a>
 			<details open>
 				<summary>Components</summary>
                 <a class="menu" href='#gallery'>Gallery</a>
@@ -865,7 +872,6 @@
 &lt;/div></div>
             </div>
 
-
             <!-- typing_text -->
             <div class="page" id="typing_text">
                 <h1>Typing text</h1>
@@ -1035,7 +1041,23 @@
 &lt;/svg></div>
             </div>
 
-
+            <!-- typing_text -->
+            <div class="page" id="identify_browser">
+                <h1>Identify browser</h1>
+                <div style="display:flex;align-items: center;justify-content:center; width:100%; height:128px;">
+                    <div class="typing_text"></div>
+                </div>
+                <p>WebKit and Gecko are fairly common engines, but they differ in how they display content and the features available. You can determine which engine is being used using @media queries.</p>
+                <h1>CSS</h1>
+<div class="show_code">@media screen and (-webkit-min-device-pixel-ratio:0) {
+    body { background-color:#aaf;}
+    body:after{content:"WebKit";}
+}
+@media screen and (min--moz-device-pixel-ratio:0) {
+    body { background-color:#afa;}
+    body:after{content:"FireFox";}
+}</div>
+            </div>
 
     </div>
     </div>
