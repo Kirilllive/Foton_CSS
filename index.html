@@ -1057,6 +1057,14 @@
     body { background-color:#afa;}
     body:after{content:"FireFox";}
 }</div>
+
+                <p>Additionally, you can check in CSS whether a property, rule, or selector is supported by the browser. If the condition is met, the CSS code written within the curly braces will be executed.</p>
+                <h1>CSS</h1>
+<div class="show_code">@supports (display: grid) and (grid-template-columns: subgrid) {
+    body:after{
+        content:"\"Display: Grid\" is supported.";
+    }
+}</div>
             </div>
 
     </div>
