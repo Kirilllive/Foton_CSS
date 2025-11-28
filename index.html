@@ -8,6 +8,7 @@
 <style>
     :root {
         --shadow:rgba(68,62,59,.6);
+        --fon:rgba(161,167,161,.5);
         --light:rgba(255,255,255,.5);
         --bg:url("data:image/svg+xml,%3csvg width='64' height='64' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='64' height='64' fill='rgba(255,255,255,.25)'/%3e%3crect x='64' y='64' width='64' height='64' fill='rgba(255,255,255,.5)'/%3e%3c/svg%3e") repeat 0 0;
     }
@@ -60,7 +61,7 @@
         width:100%;
         max-width:1024px;
         min-width:800px;
-        background-color:rgba(161,167,161,.5);
+        background-color:var(--fon);
         border-radius:16px;
         box-shadow:0px 4px 25px var(--shadow);
         backdrop-filter: blur(16px);
@@ -99,6 +100,7 @@
     }
     .catalog details:not(:last-child)[open] {
         border-bottom:1px solid var(--light);
+        margin-bottom:32px;
     }
     .catalog details details {
         display:block;
@@ -327,7 +329,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color:rgba(161,167,161,.5);
+        background-color:var(--fon);
         backdrop-filter: blur(6px);
         opacity: 0;
         pointer-events: none;
@@ -397,6 +399,38 @@
     @media screen and (min--moz-device-pixel-ratio:0) {
         .typing_text:after{content:"Your Mozilla browser";font-size:20px;font-weight:bold;}
     }
+    
+    
+     
+    .toggle input{display:none;}
+    .toggle label{
+        position:relative;
+        display:block;
+        background-color: var(--fon);
+        border:1px solid var(--light);
+        border-radius:16px;
+        width:64px;
+        height:32px;
+        cursor: pointer;
+        box-shadow:0px 4px 25px var(--shadow);
+    }
+    .toggle label:before{
+        position:absolute;
+        display:block;
+        content:"";
+        border-radius:14px;
+        border:1px solid var(--light);
+        height:24px;
+        width:24px;
+        left:2px;
+        top:2px;
+        background-color: var(--shadow);
+        transition:.5s;
+    }
+    .toggle input:checked ~ label:before{left:calc(100% - 28px);background-color:#fff;}
+    
+    
+    
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
@@ -413,6 +447,7 @@
                 <a class="menu" href='#menu_bar'>Menu bar</a>
                 <a class="menu" href='#accordion'>Accordion</a>
                 <a class="menu" href='#modal_window'>Modal window</a>
+                <a class="menu" href='#toggle'>Toggle</a>
 			</details>
 			<details open>
 				<summary>Design</summary>
@@ -1211,13 +1246,7 @@
 &lt;/html>
 </div>
             </div>
-
-
-
-
-
-
-
+            
             <!-- typing_text -->
             <div class="page" id="identify_browser">
                 <h1>Identify browser</h1>
@@ -1244,7 +1273,45 @@
 }</div>
             <h1><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@supports" target='_blank'><span class="link"></span> Full guide @supports: https://developer.mozilla.org/</a></h1>
             </div>
-
+            
+            <!-- toggle -->
+            <div class="page" id="toggle">
+                <h1>Toggle</h1>
+                <div style="display:flex;align-items: center;justify-content:center; width:100%; height:128px;">
+                    <div class="toggle">
+                        <input type='checkbox' id="switchbox">
+                        <label class='togle' for="switchbox"></label>
+                    </div>
+                </div>
+                <h1>CSS</h1>
+<div class="show_code">.toggle input{display:none;}
+.toggle label{
+    position:relative;
+    display:block;
+    background-color:#faa;
+    width:46px;
+    height:24px;
+}
+.toggle label:before{
+    position:absolute;
+    display:block;
+    content:"";
+    height:20px;
+    width:20px;
+    left:2px;
+    top:2px;
+    background-color:#f00;
+    transition:.5s;
+}
+.toggle input:checked ~ label{background-color:#afa;}
+.toggle input:checked ~ label:before{left:calc(100% - 22px);background-color:#0f0;}</div>
+                <h1>HTML</h1>
+<div class="show_code">&lt;div class="toggle">
+    &lt;input type='checkbox' id="switchbox">
+    &lt;label class='togle' for="switchbox">&lt;/label>
+&lt;/div></div>
+            </div>
+            
     </div>
     </div>
     </div>
