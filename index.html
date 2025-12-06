@@ -429,7 +429,41 @@
     }
     .toggle input:checked ~ label:before{left:calc(100% - 28px);background-color:#fff;}
     
-    
+    .range_slider {
+        --width: 400px;
+        --lines: linear-gradient(90deg, #fff 50%, var(--light) 0) 0 1/calc(50% - 1px) var(--width)/0 calc(var(--width) + 2px);
+        width: var(--width);
+        height: 16px; /* needed for Firefox*/
+        -webkit-appearance :none;
+        -moz-appearance :none;
+        appearance :none;
+        background: none;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    /* chromium */
+    .range_slider[type="range" i]::-webkit-slider-thumb{
+        height: 16px;
+        width: 16px;
+        background: var(--light);
+        border-image: var(--lines);
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px inset #fff;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    /* Firefox */
+    .range_slider[type="range"]::-moz-range-thumb {
+        height: 14px;
+        width: 14px;
+        background: var(--light);
+        border-image: var(--lines);
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px inset #fff;
+        -moz-appearance: none;
+        appearance: none;
+    }
     
 </style>
 <body>
@@ -447,6 +481,7 @@
                 <a class="menu" href='#menu_bar'>Menu bar</a>
                 <a class="menu" href='#accordion'>Accordion</a>
                 <a class="menu" href='#modal_window'>Modal window</a>
+                <a class="menu" href='#range_slider'>Range slider</a>
                 <a class="menu" href='#toggle'>Toggle</a>
 			</details>
 			<details open>
@@ -1310,6 +1345,51 @@
     &lt;input type='checkbox' id="switchbox">
     &lt;label class='togle' for="switchbox">&lt;/label>
 &lt;/div></div>
+            </div>
+
+            <!-- range_slider -->
+            <div class="page" id="range_slider">
+                <h1>Range slider</h1>
+                <div style="display:flex;align-items: center;justify-content:center; width:100%; height:128px;">
+                    <input class="range_slider" type="range" min="0" max="100" step="1" value="50" style="--width: 256px">
+                </div>
+                <h1>CSS</h1>
+<div class="show_code">.range_slider {
+    --width: 400px;
+    --color: #0f0;
+    --lines: linear-gradient(90deg, var(--color) 50%, #aaa 0) 0 1/calc(50% - 1px) var(--width)/0 var(--width); /* style slider*/
+    width: var(--width);
+    height: 16px; /* needed for Firefox*/
+    -webkit-appearance :none;
+    -moz-appearance :none;
+    appearance :none;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* WebKit */
+.range_slider[type="range" i]::-webkit-slider-thumb{
+    height: 16px;
+    width: 8px;
+    background: var(--color);
+    border-image: var(--lines);
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Firefox */
+.range_slider[type="range"]::-moz-range-thumb {
+    height: 16px;
+    width: 8px;
+    background: var(--color);
+    border-image: var(--lines);
+    -moz-appearance: none;
+    appearance: none;
+}</div>
+                <h1>HTML</h1>
+<div class="show_code">&lt;input class="range_slider" type="range" min="0" max="100">
+&lt;input class="range_slider" type="range" min="0" max="100" style="--color: #f00; --width: 256px"></div>
             </div>
             
     </div>
