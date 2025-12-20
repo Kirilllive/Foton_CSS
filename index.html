@@ -431,7 +431,7 @@
     
     .range_slider {
         --width: 400px;
-        --lines: linear-gradient(90deg, #fff 50%, var(--light) 0) 0 1/calc(50% - 1px) var(--width)/0 calc(var(--width) + 2px);
+        --lines: linear-gradient(90deg, #fff 50%, #000 0) 0 1/calc(50% - 0.5px) var(--width)/0 calc(var(--width) + 2px);
         width: var(--width);
         height: 16px; /* needed for Firefox*/
         -webkit-appearance :none;
@@ -449,7 +449,7 @@
         background: var(--light);
         border-image: var(--lines);
         border-radius: 50%;
-        box-shadow: 0 0 0 2px inset #fff;
+        box-shadow: 0 0 0 1px inset #fff;
         -webkit-appearance: none;
         appearance: none;
     }
@@ -460,7 +460,7 @@
         background: var(--light);
         border-image: var(--lines);
         border-radius: 50%;
-        box-shadow: 0 0 0 2px inset #fff;
+        box-shadow: 0 0 0 1px inset #fff;
         -moz-appearance: none;
         appearance: none;
     }
