@@ -464,7 +464,18 @@
         -moz-appearance: none;
         appearance: none;
     }
-    
+ 
+    .gradient_blur:before{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        content:"";
+        background-color:rgba(255,255,255,.2);
+        mask:linear-gradient(0deg,rgba(0,0,0,1) 5%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 95%);
+        backdrop-filter: blur(16px);
+    }
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
@@ -489,6 +500,7 @@
                 <a class="menu" href='#moving_background'>Moving background</a>
                 <a class="menu" href='#parallax_background'>Parallax background</a>
                 <a class="menu" href='#lava_effect'>Lava / Liquid effect</a>
+                <a class="menu" href='#gradient_blur'>Gradient blur</a>
                 <a class="menu" href='#displacement'>Displacement</a>
 			</details>
 			<details open>
@@ -1391,7 +1403,30 @@
 <div class="show_code">&lt;input class="range_slider" type="range" min="0" max="100">
 &lt;input class="range_slider" type="range" min="0" max="100" style="--color: #f00; --width: 256px"></div>
             </div>
-            
+    
+            <!-- gradient_blur -->
+            <div class="page" id="gradient_blur">
+                <h1>Gradient blur</h1>
+                <div class="gradient_blur" style="background:no-repeat center / cover url('img/my_trip_3.webp');display:flex;align-items: center;justify-content:center; width:100%; height:420px;position: relative;border-radius:8px;overflow: hidden;"></div>
+                <br>
+                <h1>CSS</h1>
+<div class="show_code">.gradient_blur{
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient_blur:before{content:"";
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    
+    /* gradient and blur parameters */
+    background-color:rgba(255,255,255,.2);
+    mask:linear-gradient(0deg,rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
+    backdrop-filter: blur(16px);
+}</div>
+            </div>
+
     </div>
     </div>
     </div>
