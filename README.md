@@ -1,4 +1,4 @@
-<img width="1280" height="164" alt="Foton CSS & HTML logo" src="https://github.com/user-attachments/assets/821e1df3-231d-4c58-98a7-88920dd6aac0" />
+<img width="1280" height="640" alt="Foton CSS & HTML logo" src="https://github.com/user-attachments/assets/0cd12eee-8996-47c1-9789-9714fd839145" />
 
 # Foton CSS & HTML
 
