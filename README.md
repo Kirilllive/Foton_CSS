@@ -9,7 +9,3 @@ For security reasons, many users disable JavaScript in their browsers. I often c
 I've observed that many developers rely too heavily on JavaScript when creating interfaces and often implement functionality that is already available in HTML and CSS without additional scripting.
 
 > https://kirilllive.github.io/Foton_CSS/
-
-![Foton CSS & HTML](https://github.com/user-attachments/assets/0fd3328a-d2cb-4f68-a367-0dd8cd1620e6)
-
-All photos in this repository are taken by me and you can use them for any purpose.

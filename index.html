@@ -10,7 +10,7 @@
         --shadow:rgba(68,62,59,.6);
         --fon:rgba(161,167,161,.5);
         --light:rgba(255,255,255,.5);
-        --bg:url("data:image/svg+xml,%3csvg width='64' height='64' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='64' height='64' fill='rgba(255,255,255,.25)'/%3e%3crect x='64' y='64' width='64' height='64' fill='rgba(255,255,255,.5)'/%3e%3c/svg%3e") repeat 0 0;
+        --bg:url("data:image/svg+xml,<svg width='64' height='64' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='64' height='64' fill='rgba(255,255,255,.25)'/><rect x='64' y='64' width='64' height='64' fill='rgba(255,255,255,.5)'/></svg>") repeat 0 0;
     }
     ::selection {
         background:#d08c4f;
@@ -36,7 +36,7 @@
     p, h1, .show_code{margin-bottom:20px;}
     h1{font-size:16px;}
     body{
-        background:url("img/20241121_153937.jpg") no-repeat fixed center top ;
+        background:#525e6d url("img/20241121_153937.jpg") no-repeat fixed center top;
         background-size: cover;
         min-height:100vh;
         width:100vw;
@@ -100,7 +100,7 @@
     }
     .catalog details:not(:last-child)[open] {
         border-bottom:1px solid var(--light);
-        margin-bottom:16px;
+        margin-bottom:32px;
     }
     .catalog details details {
         display:block;
@@ -117,8 +117,8 @@
         display:block;
         width:100%;
         white-space: pre-wrap;
-        font-size:12px;
-        font-family: Arial;
+        font-size:11px;
+        font-family: monospace;
         line-height: 16px;
         color:#000;
     }
@@ -228,7 +228,7 @@
     .save{
         display:inline-block;
         transform:translateY(3px);
-        background-image:url("data:image/svg+xml,%3csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10 6H13L8 11L3 6H6V1H10V6Z' fill='white'/%3e%3crect x='1' y='12' width='14' height='2' fill='white'/%3e%3c/svg%3e");
+        background-image:url("data:image/svg+xml,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10 6H13L8 11L3 6H6V1H10V6Z' fill='white'/><rect x='1' y='12' width='14' height='2' fill='white'/></svg>");
         height:16px;
         width:16px;
         background-size:cover;
@@ -399,9 +399,6 @@
     @media screen and (min--moz-device-pixel-ratio:0) {
         .typing_text:after{content:"Your Mozilla browser";font-size:20px;font-weight:bold;}
     }
-    
-    
-     
     .toggle input{display:none;}
     .toggle label{
         position:relative;
@@ -484,6 +481,7 @@
 		<div class="catalog">
             <a class="menu" href='#about' >About</a>
             <a class="menu" href='#identify_browser'>Identify browser</a>
+            <a class="menu" href='#switch_color_theme'>Switch color theme</a>
             <a class="menu" href='#multi_page'>Multi-page site</a>
             <a class="menu" href='#interactive_fiction'>Interactive fiction</a>
 			<details open>
@@ -518,7 +516,7 @@
                 <div style="text-align:center;margin:64px 0;">
                     <h1>This site's repository on GitHub</h1>
                     <br><a href="https://github.com/Kirilllive/Foton_CSS" target='_blank' draggable="false"><p><img src="img/github.svg" draggable="false"></p></a>
-                </div>
+                </div><br>
                 <div style="text-align:center;margin:64px 0;">
                     <h1>You can support the project on Patreon or Boosty!</h1>
                     <br><a href="https://www.patreon.com/kirill_live" target='_blank' draggable="false"><p><img src="img/patreon.svg" draggable="false"></p></a>
@@ -757,7 +755,7 @@
 
 .moving_bg{
     /* Image and other background options */
-    background: #000 url("data:image/svg+xml,%3csvg width='128' height='128' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='64' height='64' fill='%23fff'/%3e%3crect x='64' y='64' width='64' height='64' fill='%23fff'/%3e%3c/svg%3e") repeat 0 0;
+    background: #000 url("data:image/svg+xml,&lt;svg width='128' height='128' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'>&lt;crect width='64' height='64' fill='%23fff'/>&lt;rect x='64' y='64' width='64' height='64' fill='%23fff'/>&lt;/svg>") repeat 0 0;
 
     /* Animation title, time and style */
     animation:moving_bg 6s infinite linear;
@@ -1319,6 +1317,54 @@
     }
 }</div>
             <h1><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@supports" target='_blank'><span class="link"></span> Full guide @supports: https://developer.mozilla.org/</a></h1>
+            </div>
+            
+            <!-- typing_text -->
+            <div class="page" id="switch_color_theme">
+                <h1>Switch color theme</h1>
+                <p>For user convenience, many programs and OS offer a choice between "light" and "dark" interface modes. Browsers also provide tools for adapting web pages to these modes.</p>
+                <h1><a href='data:text/html;base64,PGh0bWw+Cgk8aGVhZD4KCQk8bWV0YSBjaGFyc2V0PSJVVEYtOCI+CgkJPHRpdGxlPnN3aXRjaCBjb2xvciB0aGVtZTwvdGl0bGU+CiAgICAgICAgPHN0eWxlPgogICAgICAgICAgICAvKiBEZXRlcm1pbmUgdGhlIGRlZmF1bHQgdGhlbWUgYW5kIHN3aXRjaCBpdCAqLwogICAgICAgICAgICA6cm9vdCB7CiAgICAgICAgICAgICAgICBjb2xvci1zY2hlbWU6bGlnaHQgZGFyazsKICAgICAgICAgICAgICAgIEBtZWRpYSAocHJlZmVycy1jb2xvci1zY2hlbWU6IGRhcmspIHsKICAgICAgICAgICAgICAgICAgICAtLXNjaGVtZS10ZXh0OiAiZGFyayI7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBAbWVkaWEgKHByZWZlcnMtY29sb3Itc2NoZW1lOiBsaWdodCkgewogICAgICAgICAgICAgICAgICAgIC0tc2NoZW1lLXRleHQ6ICJsaWdodCI7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgaHRtbDpoYXMoLnNjaGVtZV90b2dnbGUgaW5wdXRbdHlwZT0iY2hlY2tib3giXTpjaGVja2VkKSB7CiAgICAgICAgICAgICAgICBAbWVkaWEgKHByZWZlcnMtY29sb3Itc2NoZW1lOiBkYXJrKSB7CiAgICAgICAgICAgICAgICAgICAgY29sb3Itc2NoZW1lOiBsaWdodDsKICAgICAgICAgICAgICAgICAgICAtLXNjaGVtZS10ZXh0OiAibGlnaHQiOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgQG1lZGlhIChwcmVmZXJzLWNvbG9yLXNjaGVtZTogbGlnaHQpIHsKICAgICAgICAgICAgICAgICAgICBjb2xvci1zY2hlbWU6IGRhcms7CiAgICAgICAgICAgICAgICAgICAgLS1zY2hlbWUtdGV4dDogImRhcmsiOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CgogICAgICAgICAgICAvKiBUaGVtZSBzd2l0Y2ggYnV0dG9uICovCiAgICAgICAgICAgIC5zY2hlbWVfdG9nZ2xlIGlucHV0e2Rpc3BsYXk6bm9uZTt9CiAgICAgICAgICAgIC5zY2hlbWVfdG9nZ2xlIGxhYmVsOmJlZm9yZXsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6I2FhYTsKICAgICAgICAgICAgICAgIHBhZGRpbmc6OHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOjMycHg7CiAgICAgICAgICAgICAgICBjb250ZW50OnZhcigtLXNjaGVtZS10ZXh0KTsKICAgICAgICAgICAgfQogICAgICAgICAgICBib2R5ewogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogbGlnaHQtZGFyaygjY2NmLCAjMjI0KTsKICAgICAgICAgICAgfQogICAgICAgIDwvc3R5bGU+Cgk8L2hlYWQ+Cjxib2R5PgoKPGRpdiBjbGFzcz0ic2NoZW1lX3RvZ2dsZSI+CiAgICA8aW5wdXQgdHlwZT0nY2hlY2tib3gnIGlkPSJzd2l0Y2hib3giPgogICAgPGxhYmVsIGNsYXNzPSd0b2dsZScgZm9yPSJzd2l0Y2hib3giPjwvbGFiZWw+CjwvZGl2PgoKPC9ib2R5Pgo8L2h0bWw+Cg==' download='Switch_Color_Theme.html'><span class="save"></span> Download switch_color_theme</a></h1>
+
+                <h1>CSS</h1>
+<div class="show_code">/* Determine the default theme and switch it */
+:root {
+    color-scheme:light dark;
+    @media (prefers-color-scheme: dark) {
+        --scheme-text: "dark";
+    }
+    @media (prefers-color-scheme: light) {
+        --scheme-text: "light";
+    }
+}
+html:has(.scheme_toggle input[type="checkbox"]:checked) {
+    @media (prefers-color-scheme: dark) {
+        color-scheme: light;
+        --scheme-text: "light";
+    }
+    @media (prefers-color-scheme: light) {
+        color-scheme: dark;
+        --scheme-text: "dark";
+    }
+}
+
+/* Theme switch button */
+.scheme_toggle input{display:none;}
+.scheme_toggle label:before{
+    background-color:#aaa;
+    padding:8px;
+    font-size:32px;
+    content:var(--scheme-text);
+}
+
+body{
+    background-color: light-dark(#ccf, #224);
+}</div>
+                <h1>HTML</h1>
+<div class="show_code">&lt;div class="scheme_toggle">
+    &lt;input type='checkbox' id="switchbox">
+    &lt;label class='togle' for="switchbox">&lt;/label>
+&lt;/div></div>
+            <h1><a href="https://css-tricks.com/almanac/functions/l/light-dark/" target='_blank'><span class="link"></span> Full guide @supports: https://css-tricks.com/almanac/functions/l/light-dark/</a></h1>
             </div>
             
             <!-- toggle -->
