@@ -33,6 +33,29 @@
         font-family:Arial;
         -webkit-tap-highlight-color: transparent;
     }
+    body:has(#about:target) .m_about,
+    body:has(#identify_browser:target) .m_identify_browser,
+    body:has(#switch_color_theme:target) .m_switch_color_theme,
+    body:has(#multi_page:target) .m_multi_page,
+    body:has(#interactive_fiction:target) .m_interactive_fiction,
+    body:has(#switch_color_theme:target) .m_switch_color_theme,
+    body:has(#multi_page:target) .m_multi_page,
+    body:has(#gallery:target) .m_gallery,
+    body:has(#menu_bar:target) .m_menu_bar,
+    body:has(#accordion:target) .m_accordion,
+    body:has(#modal_window:target) .m_modal_window,
+    body:has(#range_slider:target) .m_range_slider,
+    body:has(#toggle:target) .m_toggle,
+    body:has(#moving_background:target) .m_moving_background,
+    body:has(#parallax_background:target) .m_parallax_background,
+    body:has(#lava_effect:target) .m_lava_effect,
+    body:has(#gradient_blur:target) .m_gradient_blur,
+    body:has(#displacement:target) .m_displacement,
+    body:has(#typing_text:target) .m_typing_text,
+    body:has(#tumbering_text:target) .m_tumbering_text{
+        background-color: var(--light);
+        color: #000;
+    }
     p, h1, .show_code{margin-bottom:20px;}
     h1{font-size:16px;}
     body{
@@ -84,7 +107,7 @@
         border-left:1px solid var(--light);
     }
     .catalog {
-        padding: 8px;
+        padding: 8px 0 8px 8px;
         user-select:none;
     }
     .catalog summary {
@@ -96,7 +119,7 @@
         display:block;
         padding: 6px 0 6px 14px;
         margin:2px 0;
-        border-radius: 16px;
+        border-radius: 8px 0 0 8px;
     }
     .catalog details:not(:last-child)[open] {
         border-bottom:1px solid var(--light);
@@ -473,37 +496,51 @@
         mask:linear-gradient(0deg,rgba(0,0,0,1) 5%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 95%);
         backdrop-filter: blur(16px);
     }
+    .tumbering_text {
+        counter-reset:list;
+        list-style: none;
+    }
+    li > .tumbering_text{padding-left:28px;}
+    .tumbering_text div {
+          margin:8px 0;
+     }
+    .tumbering_text div:before {
+        counter-increment: list;
+        content: counters(list, ".") " ";
+        font-weight: bold;
+    }
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
     <!-- content pages -->
     <div class="panel">
 		<div class="catalog">
-            <a class="menu" href='#about' >About</a>
-            <a class="menu" href='#identify_browser'>Identify browser</a>
-            <a class="menu" href='#switch_color_theme'>Switch color theme</a>
-            <a class="menu" href='#multi_page'>Multi-page site</a>
-            <a class="menu" href='#interactive_fiction'>Interactive fiction</a>
+            <a class="m_about" href='#about' >About</a>
+            <a class="m_identify_browser" href='#identify_browser'>Identify browser</a>
+            <a class="m_switch_color_theme" href='#switch_color_theme'>Switch color theme</a>
+            <a class="m_multi_page" href='#multi_page'>Multi-page site</a>
+            <a class="m_interactive_fiction" href='#interactive_fiction'>Interactive fiction</a>
 			<details open>
 				<summary>Components</summary>
-                <a class="menu" href='#gallery'>Gallery</a>
-                <a class="menu" href='#menu_bar'>Menu bar</a>
-                <a class="menu" href='#accordion'>Accordion</a>
-                <a class="menu" href='#modal_window'>Modal window</a>
-                <a class="menu" href='#range_slider'>Range slider</a>
-                <a class="menu" href='#toggle'>Toggle</a>
+                <a class="m_gallery" href='#gallery'>Gallery</a>
+                <a class="m_menu_bar" href='#menu_bar'>Menu bar</a>
+                <a class="m_accordion" href='#accordion'>Accordion</a>
+                <a class="m_modal_window" href='#modal_window'>Modal window</a>
+                <a class="m_range_slider" href='#range_slider'>Range slider</a>
+                <a class="m_toggle" href='#toggle'>Toggle</a>
 			</details>
 			<details open>
 				<summary>Design</summary>
-                <a class="menu" href='#moving_background'>Moving background</a>
-                <a class="menu" href='#parallax_background'>Parallax background</a>
-                <a class="menu" href='#lava_effect'>Lava / Liquid effect</a>
-                <a class="menu" href='#gradient_blur'>Gradient blur</a>
-                <a class="menu" href='#displacement'>Displacement</a>
+                <a class="m_moving_background" href='#moving_background'>Moving background</a>
+                <a class="m_parallax_background" href='#parallax_background'>Parallax background</a>
+                <a class="m_lava_effect" href='#lava_effect'>Lava / Liquid effect</a>
+                <a class="m_gradient_blur" href='#gradient_blur'>Gradient blur</a>
+                <a class="m_displacement" href='#displacement'>Displacement</a>
 			</details>
 			<details open>
 				<summary>Text</summary>
-                <a class="menu" href='#typing_text'>Typing text</a>
+                <a class="m_typing_text" href='#typing_text'>Typing text</a>
+                <a class="m_tumbering_text" href='#tumbering_text'>Numbering in text</a>
 			</details>
         <!-- page switch button -->
         </div>
@@ -983,6 +1020,49 @@
             <h1><a href="https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3" target='_blank'><span class="link"></span> Full guide: https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3</a></h1>
             </div>
 
+            <!-- tumbering_text -->
+            <div class="page" id="tumbering_text">
+                <h1>Numbering in text</h1>
+                <div style="display:block; width:100%;">
+                    <ol class="tumbering_text">
+                        <li><div><b>Precedent</b> - Legal writing values precedent, as distinct from authority. For example, a lawyer who must prepare a contract and who has prepared a similar contract before will often re-use, with limited changes, the old contract for the new occasion. Or a lawyer who has filed a successful motion to dismiss a lawsuit may use the same or a very similar form of motion again in another case, and so on.</div></li>
+                        <li><div><b>Vocabulary</b> - Legal writing extensively uses technical terminology that can be categorized in four ways:</div></li>
+                        <li>
+                            <ol class="tumbering_text">
+                                <li><div>Specialized words and phrases unique to law, e.g., tort, fee simple, and novation.</div></li>
+                                <li><div>Ordinary words having different meanings in law, e.g., action (lawsuit), consideration (support for a promise), execute (to sign to effect), and party (a principal in a lawsuit).</div></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div><br>
+                <h1>HTML</h1>
+<div class="show_code">&lt;ol class="list">
+    &lt;li>&lt;div>item&lt;/div>&lt;/li>
+    &lt;li>&lt;div>item&lt;/div>&lt;/li>
+    &lt;li>
+        &lt;ol class="list">
+            &lt;li>&lt;div>item&lt;/div>&lt;/li>
+        &lt;/ol>
+    &lt;/li>
+&lt;/ol></div>
+                <h1>CSS</h1>
+<div class="show_code">.list {
+    counter-reset: list;
+    list-style: none;
+}
+li > .list{
+    padding-left: 28px;
+}
+.list div {
+      margin: 16px 0;
+}
+.list div:before {
+    counter-increment: list;
+    content: counters(list, ".") " ";
+    font-weight: bold;
+}</div>
+            </div>
+            
             <!-- lava_effect -->
             <div class="page" id="lava_effect">
                 <h1>Lava / Liquid effect</h1>
