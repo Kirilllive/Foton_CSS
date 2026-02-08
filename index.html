@@ -52,6 +52,7 @@
     body:has(#gradient_blur:target) .m_gradient_blur,
     body:has(#displacement:target) .m_displacement,
     body:has(#typing_text:target) .m_typing_text,
+    body:has(#anim_frames:target) .m_anim_frames,
     body:has(#tumbering_text:target) .m_tumbering_text{
         background-color: var(--light);
         color: #000;
@@ -509,6 +510,17 @@
         content: counters(list, ".") " ";
         font-weight: bold;
     }
+    .anim_frames{
+        display:block;
+        width:256px;
+        height:256px;
+        animation: anim_frames 1.5s steps(13) infinite alternate ;
+        background-image:url("img/anim_frames.png");
+    }
+    @keyframes anim_frames{
+        from{background-position-x:0px;}
+        to{background-position-x:-3328px;}
+    }
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
@@ -532,6 +544,7 @@
 			<details open>
 				<summary>Design</summary>
                 <a class="m_moving_background" href='#moving_background'>Moving background</a>
+                <a class="m_anim_frames" href='#anim_frames'>Frame animation</a>
                 <a class="m_parallax_background" href='#parallax_background'>Parallax background</a>
                 <a class="m_lava_effect" href='#lava_effect'>Lava / Liquid effect</a>
                 <a class="m_gradient_blur" href='#gradient_blur'>Gradient blur</a>
@@ -812,7 +825,7 @@
                     </svg>
                     <div style="box-shadow:0px 4px 25px var(--shadow);width:128px;height:128px;background-color:rgba(255,255,255,.25);border-radius:16px;backdrop-filter:url(#liquid-glass);border-top:2px solid var(--light);border-bottom:2px solid var(--light);"></div>
                 </div>
-                <h1><a href="data:image/svg+xml,%3csvg id='myMap' width='100%' height='100%' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3e %3cdefs%3e  %3cstyle type='text/css'%3e.redGradient{fill:url(%23redGradient);}.blueGradient{fill: url(%23blueGradient);mix-blend-mode:screen;}.redSymbol{display: block;}.rectgray{width:calc(100% - 32px);height:calc(100% - 32px);x:16px;y:16px;}%3c/style%3e%3cfilter id='shadow2'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='8' /%3e  %3c/filter%3e  %3clinearGradient id='redGradient' x1='0' x2='1' y1='0' y2='0' color-interpolation='sRGB' gradientUnits='objectBoundingBox'%3e%3cstop offset='30%' stop-color='%23F77' /%3e%3cstop offset='70%' stop-color='%23F44' stop-opacity='0' /%3e%3c/linearGradient%3e%3clinearGradient id='blueGradient' x1='0' x2='0' y1='0' y2='1' color-interpolation='sRGB' gradientUnits='objectBoundingBox'%3e%3cstop offset='20%' stop-color='%2300F' /%3e%3cstop offset='80%' stop-color='%2308F' stop-opacity='0' /%3e%3c/linearGradient%3e%3crect class='redGradient' id='redGradientRect' width='100%' height='100%' x='0' y='0'/%3e%3c/defs%3e%3crect fill='%238B8B8B' width='100%' height='100%' x='0' y='0'/%3e%3cuse class='redSymbol' href='%23redGradientRect'/%3e%3crect class='blueGradient' fill='url(%23blueGradient)' width='100%' height='100%' x='0' y='0' /%3e%3crect class='rectgray' fill='%23BAB' filter='url(%23shadow2)'/%3e%3c/svg%3e" download='Displacement_Map.svg'><span class="save"></span>Download displacement map SVG</a></h1>
+                <h1><a href="data:image/svg+xml,%3csvg id='myMap' width='100%' height='100%' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3e %3cdefs%3e  %3cstyle type='text/css'%3e.redGradient{fill:url(%23redGradient);}.blueGradient{fill: url(%23blueGradient);mix-blend-mode:screen;}.redSymbol{display: block;}.rectgray{width:calc(100% - 32px);height:calc(100% - 32px);x:16px;y:16px;}%3c/style%3e%3cfilter id='shadow2'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='8' /%3e  %3c/filter%3e  %3clinearGradient id='redGradient' x1='0' x2='1' y1='0' y2='0' color-interpolation='sRGB' gradientUnits='objectBoundingBox'%3e%3cstop offset='30%' stop-color='%23F77' /%3e%3cstop offset='70%' stop-color='%23F44' stop-opacity='0' /%3e%3c/linearGradient%3e%3clinearGradient id='blueGradient' x1='0' x2='0' y1='0' y2='1' color-interpolation='sRGB' gradientUnits='objectBoundingBox'%3e%3cstop offset='20%' stop-color='%2300F' /%3e%3cstop offset='80%' stop-color='%2308F' stop-opacity='0' /%3e%3c/linearGradient%3e%3crect class='redGradient' id='redGradientRect' width='100%' height='100%' x='0' y='0'/%3e%3c/defs%3e%3crect fill='%238B8B8B' width='100%' height='100%' x='0' y='0'/%3e%3cuse class='redSymbol' href='%23redGradientRect'/%3e%3crect class='blueGradient' fill='url(%23blueGradient)' width='100%' height='100%' x='0' y='0' /%3e%3crect class='rectgray' fill='%23BAB' filter='url(%23shadow2)'/%3e%3c/svg%3e" download='Displacement_Map.svg'><span class="save"></span> Download displacement map SVG</a></h1>
                 <h1>HTML SVG</h1>
 <div class="show_code">&lt;!-- SVG Filter -->
 &lt;svg width="0" height="0">
@@ -1552,7 +1565,39 @@ body{
     backdrop-filter: blur(16px);
 }</div>
             </div>
-
+            
+            <!-- anim_frames -->
+            <div class="page" id="anim_frames">
+                <h1>Stop-motion frame animation</h1>
+                <div style="display:flex;align-items: center;justify-content:center; width:100%; height:220px;">
+                    <div class="anim_frames"></div>
+                </div>
+                <br>
+                <h1>IMG</h1>
+                <div class="show_code"><img src="img/anim_frames.png" width="100%" height="auto"></div>
+                <h1>CSS</h1>
+<div class="show_code">/*The sequence of frames in a graphic file must be ordered vertically or horizontally (recommended).*/
+.anim_frames{
+    display:block;
+    width:256px;
+    height:256px;
+    
+    /* number of animation frames and playback speed */
+    animation: anim_frames 1.5s steps(13) infinite alternate ;
+    
+    /* File with animation frames */
+    background-image:url("anim_frames.png");
+}
+@keyframes anim_frames{
+    from{background-position-x:0px;}
+    
+    /* negative image size */
+    to{background-position-x:-3328px;}
+}</div>
+                <h1>HTML</h1>
+                <div class="show_code">&lt;div class="anim_frames">&lt;/div></div>
+            </div>
+            
     </div>
     </div>
     </div>
