@@ -53,6 +53,7 @@
     body:has(#displacement:target) .m_displacement,
     body:has(#typing_text:target) .m_typing_text,
     body:has(#anim_frames:target) .m_anim_frames,
+    body:has(#sidebar:target) .m_sidebar,
     body:has(#tumbering_text:target) .m_tumbering_text{
         background-color: var(--light);
         color: #000;
@@ -446,7 +447,7 @@
         left:2px;
         top:2px;
         background-color: var(--shadow);
-        transition:.5s;
+        
     }
     .toggle input:checked ~ label:before{left:calc(100% - 28px);background-color:#fff;}
     
@@ -521,6 +522,38 @@
         from{background-position-x:0px;}
         to{background-position-x:-3328px;}
     }
+    
+    .sidebar{
+        display:block;
+        position:relative;
+        height:100%;
+        width:min-content;
+        border-left:1px solid var(--light);
+    }
+    .sidebar .sidebar_panel {
+        background-color: var(--shadow);
+        overflow: hidden;
+        transition:.5s;
+        padding:0;
+        height:100%;
+        width:0px;
+    }
+    .sidebar .sidebar_button{
+        position: absolute;
+        display:flex;
+        right: -32px; top: 0;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--shadow);
+        border-radius:0 8px 8px 0;
+        height:32px;
+        width:32px;
+        cursor: pointer;
+    }
+    .sidebar .sidebar_button:after {content: "\22B3 ";}
+    .sidebar #sidebar_control:checked + .sidebar_button:after {content: "\22B2"; right:0px;}
+    .sidebar #sidebar_control:checked ~ .sidebar_panel {width:128px;padding:0 8px;}
+
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
@@ -540,6 +573,7 @@
                 <a class="m_modal_window" href='#modal_window'>Modal window</a>
                 <a class="m_range_slider" href='#range_slider'>Range slider</a>
                 <a class="m_toggle" href='#toggle'>Toggle</a>
+                <a class="m_sidebar" href='#sidebar'>Sidebar</a>
 			</details>
 			<details open>
 				<summary>Design</summary>
@@ -1565,7 +1599,61 @@ body{
     backdrop-filter: blur(16px);
 }</div>
             </div>
-            
+
+
+            <!-- sidebar -->
+            <div class="page" id="sidebar">
+                <h1>Sidebar</h1>
+                <div style="display:flex;align-items: center;justify-content:center; width:100%; height:220px;">
+
+                    <div style="display:block;height:256px;width:156px;position:relative;">
+                    <div style="position:absolute;left:0px;top:0px;height:100%;"><div class="sidebar">
+                        <input type="checkbox" id="sidebar_control" style="display:none;">
+                        <label for="sidebar_control" class="sidebar_button"> </label>
+                        <div class="sidebar_panel">
+                            content
+                        </div>
+                    </div></div>
+                    </div>
+
+                </div>
+                <br>
+                <h1>CSS</h1>
+<div class="show_code">.sidebar{
+    display:block;
+    position:relative;
+    height:min-content;
+    width:min-content;
+}
+.sidebar .sidebar_panel {
+    background-color:#aaf;
+    overflow: hidden;
+    transition:.5s;
+    height:512px;
+    width:0px;
+}
+.sidebar .sidebar_button{
+    position: absolute;
+    display:flex;
+    right: -32px; top: 0;
+    align-items: center;
+    justify-content: center;
+    height:32px;
+    width:32px;
+}
+.sidebar .sidebar_button:after {content: "\22B3 ";}
+.sidebar #sidebar_control:checked + .sidebar_button:after {content: "\22B2";}
+.sidebar #sidebar_control:checked ~ .sidebar_panel {width:128px;}</div>
+
+<h1>HTML</h1>
+<div class="show_code">&lt;div class="sidebar">
+    &lt;input type="checkbox" id="sidebar_control" style="display:none;"/>
+    &lt;label for="sidebar_control" style="background-color:#afa;" class="sidebar_button">&lt;/label>
+    &lt;div class="sidebar_panel">
+        content
+    &lt;/div>
+&lt;/div></div>
+
             <!-- anim_frames -->
             <div class="page" id="anim_frames">
                 <h1>Stop-motion frame animation</h1>
