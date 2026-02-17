@@ -447,7 +447,7 @@
         left:2px;
         top:2px;
         background-color: var(--shadow);
-        
+        transition:.5s;
     }
     .toggle input:checked ~ label:before{left:calc(100% - 28px);background-color:#fff;}
     
@@ -550,8 +550,8 @@
         width:32px;
         cursor: pointer;
     }
-    .sidebar .sidebar_button:after {content: "\22B3 ";}
-    .sidebar #sidebar_control:checked + .sidebar_button:after {content: "\22B2"; right:0px;}
+    .sidebar .sidebar_button:after {content: "\25B6";}
+    .sidebar #sidebar_control:checked + .sidebar_button:after {content: "\25C4"; right:0px;}
     .sidebar #sidebar_control:checked ~ .sidebar_panel {width:128px;padding:0 8px;}
 
 </style>
@@ -1641,8 +1641,8 @@ body{
     height:32px;
     width:32px;
 }
-.sidebar .sidebar_button:after {content: "\22B3 ";}
-.sidebar #sidebar_control:checked + .sidebar_button:after {content: "\22B2";}
+.sidebar .sidebar_button:after {content: "\25B6 ";}
+.sidebar #sidebar_control:checked + .sidebar_button:after {content: "\25C4";}
 .sidebar #sidebar_control:checked ~ .sidebar_panel {width:128px;}</div>
 
 <h1>HTML</h1>
@@ -1653,6 +1653,7 @@ body{
         content
     &lt;/div>
 &lt;/div></div>
+            </div>
 
             <!-- anim_frames -->
             <div class="page" id="anim_frames">
