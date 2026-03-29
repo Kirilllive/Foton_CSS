@@ -54,6 +54,7 @@
     body:has(#typing_text:target) .m_typing_text,
     body:has(#anim_frames:target) .m_anim_frames,
     body:has(#sidebar:target) .m_sidebar,
+    body:has(#summation:target) .m_summation,
     body:has(#tumbering_text:target) .m_tumbering_text{
         background-color: var(--light);
         color: #000;
@@ -70,7 +71,7 @@
         margin:0px auto;
         scrollbar-gutter: stable;
     }
-    @supports selector(:has(*)){:not(:has(.page:target)) #about{display:block;}}
+    @supports selector(:has(*)){:not(:has(:target)) #about{display:block;}}
     .page{
         display:none;
     }
@@ -554,6 +555,37 @@
     .sidebar #sidebar_control:checked + .sidebar_button:after {content: "\25C4"; right:0px;}
     .sidebar #sidebar_control:checked ~ .sidebar_panel {width:128px;padding:0 8px;}
 
+    .summation {
+        display: flex;
+        gap:8px;
+        flex-direction: column;
+    }
+    .summation input {
+        position: absolute;
+        opacity: 0;
+    }
+    .summation input:checked  { counter-increment: total-price var(--price); }
+    .summation > .total-sum::after {
+        content: counter(total-price);
+    }
+    .summation > .total-sum{
+        padding:2px 16px;
+    }
+    .summation label {
+		white-space: nowrap;
+		background-color: var(--shadow);
+        border-radius:8px;
+        padding:4px 16px;
+        outline:1px solid var(--light);
+        outline-offset:-1px;
+        cursor: pointer;
+    }
+
+    .summation input:checked + label {
+		background-color: var(--light);
+        color: #000;
+    }
+  
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
@@ -574,6 +606,7 @@
                 <a class="m_range_slider" href='#range_slider'>Range slider</a>
                 <a class="m_toggle" href='#toggle'>Toggle</a>
                 <a class="m_sidebar" href='#sidebar'>Sidebar</a>
+                <a class="m_summation" href='#summation'>Summing</a>
 			</details>
 			<details open>
 				<summary>Design</summary>
@@ -1685,6 +1718,45 @@ body{
 }</div>
                 <h1>HTML</h1>
                 <div class="show_code">&lt;div class="anim_frames">&lt;/div></div>
+            </div>
+        
+            <!-- summation -->
+            <div class="page" id="summation">
+                <h1>Summing the values ​​in the elements (Shopping cart)</h1>
+                <div style="display:flex;align-items: center;justify-content:center; width:100%; height:220px;">
+                    <div class="summation">
+                        <input type="checkbox" id="item_1" style="--price:50">
+                        <label for="item_1">Banana 50</label>
+
+                        <input type="checkbox" id="item_2" style="--price:30">
+                        <label for="item_2">Orange 30</label>
+
+                        <input type="checkbox" id="item_3" style="--price:120">
+                        <label for="item_3">Papaya 120</label>
+
+                        <div class="total-sum">Total: </div>
+                    </div>
+                </div>
+                <br>
+                <h1>CSS</h1>
+<div class="show_code">/* calculating the sum of selected elements */
+.shop input:checked  { counter-increment: total-price var(--price); }
+.total:after {
+    content: counter(total-price) " $";
+}</div>
+                <h1>HTML</h1>
+                <div class="show_code">&lt;div class="shop">
+    &lt;input type="checkbox" id="item_1" style="--price:50">
+    &lt;label for="item_1">item 1 $50&lt;/label>
+
+    &lt;input type="checkbox" id="item_2" style="--price:30">
+    &lt;label for="item_2">item 3 $30&lt;/label>
+
+    &lt;input type="checkbox" id="item_3" style="--price:120">
+    &lt;label for="item_3">item 3 $120&lt;/label>
+
+    &lt;div class="total-sum">Total: &lt;/div>
+&lt;/div></div>
             </div>
             
     </div>
