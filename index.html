@@ -56,7 +56,9 @@
     body:has(#sidebar:target) .m_sidebar,
     body:has(#summation:target) .m_summation,
     body:has(#tooltip:target) .m_tooltip,
-    body:has(#tumbering_text:target) .m_tumbering_text{
+    body:has(#tooltip:target) .m_tooltip,
+    body:has(#tumbering_text:target) .m_tumbering_text,
+    body:has(#tree_view:target) .m_tree_view{
         background-color: var(--light);
         color: #000;
     }
@@ -82,7 +84,7 @@
         scroll-margin-top: 300px;
     }
     
-    .panel {
+    .panel{
         display:grid;
         grid-template-columns:256px auto;
         width:100%;
@@ -528,7 +530,7 @@
     .sidebar .sidebar_panel {
         background-color: var(--light);
         overflow: hidden;
-        color:#000;
+        color:#fff;
         transition:.5s;
         padding:0;
         height:100%;
@@ -546,8 +548,8 @@
         width:28px;
         cursor: pointer;
     }
-    .sidebar .sidebar_button:after {content: "\25B6";color:#000;}
-    .sidebar #sidebar_control:checked + .sidebar_button:after {content: "\25C4"; right:0px;color:#000;}
+    .sidebar .sidebar_button:after {content: "\25B6";color:#fff;}
+    .sidebar #sidebar_control:checked + .sidebar_button:after {content: "\25C4"; right:0px;color:#fff;}
     .sidebar #sidebar_control:checked ~ .sidebar_panel {width:128px;padding:0 8px;}
 
     .summation {
@@ -587,6 +589,7 @@
     .tooltip > span{
         cursor: pointer;
         text-decoration: underline;
+        font-weight: bold;
     }
     .tooltip > div{
         display: none;
@@ -610,7 +613,7 @@
         width: 0;
         z-index: 1;
         border: medium solid #fff;
-        border-width: 0 10px 10px 10px;
+        border-width: 0 12px 12px 12px;
         border-color: transparent transparent white transparent;
     }
     
@@ -628,6 +631,42 @@
         display: block;
     }
 
+    .tree_view summary{
+        list-style: none;
+        width: 92px;
+        cursor:pointer;
+        user-select:none;
+    }
+    
+    .tree_view details > div{
+        margin:4px 4px 4px 22px;
+        position:relative;
+        width: 92px;
+    }
+
+    .tree_view details > div:not(:last-child) > details::before{content:'';
+        width:12px;
+        height:calc(100% - 24px);
+        display:block;
+        position:absolute;
+        top:12px;left:-18px;
+        border-left:1px solid var(--light);
+    }
+
+    .tree_view details > div::before{content:'';
+        width:12px;
+        height:27px;
+        display:block;
+        position:absolute;
+        top:-16px;left:-18px;
+        border-left:1px solid var(--light);
+        border-bottom:1px solid var(--light);
+    }
+        
+    .tree_view details > div:first-of-type::before{content:'';
+        height:14px;
+        top:-3px;left:-18px;
+    }
 
 </style>
 <body>
@@ -649,6 +688,7 @@
                 <a class="m_range_slider" href='#range_slider'>Range slider</a>
                 <a class="m_toggle" href='#toggle'>Toggle</a>
                 <a class="m_tooltip" href='#tooltip'>Tooltip</a>
+                <a class="m_tree_view" href='#tree_view'>Tree View</a>
                 <a class="m_sidebar" href='#sidebar'>Sidebar</a>
                 <a class="m_summation" href='#summation'>Summing</a>
 			</details>
@@ -1837,7 +1877,90 @@ body{
 &lt;/span>
 </div>
             </div>
-            
+        
+            <!-- tree_view -->
+            <div class="page" id="tree_view">
+                <h1>Tree View</h1>
+                <div style="display:flex;align-items: start;justify-content:center;width:100%; height:280px;">
+                    <div class="tree_view" style="width:128px;display:block;">
+                        <details open>
+                            <summary >catalog 1</summary>
+                            <div>item 0</div>
+                            <div>
+                                <details open>
+                                    <summary >catalog 2</summary>
+                                    <div>item 1</div>
+                                    <div>item 2</div>
+                                    <div>
+                                        <details open>
+                                            <summary >catalog 3</summary>
+                                            <div>item 3</div>
+                                            <div>item 4</div>
+                                        </details>
+                                    </div>
+                                </details>
+                            </div>
+                            <div>item 5</div>
+                        </details>
+                    </div>
+                </div>
+                <br>
+                <h1>CSS</h1>
+<div class="show_code">summary {
+    list-style: none;
+    width: 92px;
+}
+details > div {
+    margin:4px 4px 4px 22px;
+    position:relative;
+    width: 92px;
+}
+
+details > div:not(:last-child) > details::before {content:'';
+    width:12px;
+    height:100%;
+    display:block;
+    position:absolute;
+    top:10px;left:-18px;
+    border-left:1px solid #000;
+}
+
+details > div::before {content:'';
+    width:12px;
+    height:22px;
+    display:block;
+    position:absolute;
+    top:-13px;left:-18px;
+    border-left:1px solid #000;
+    border-bottom:1px solid #000;
+}
+	
+details > div:first-of-type::before {content:'';
+    height:12px;
+    top:-3px;left:-18px;
+}</div>
+                <h1>HTML</h1>
+<div class="show_code">&lt;details open>
+    &lt;summary >catalog 1&lt;/summary>
+    &lt;div>item 0&lt;/div>
+    &lt;div>
+        &lt;details open>
+            &lt;summary >catalog 2&lt;/summary>
+            &lt;div>item 1&lt;/div>
+            &lt;div>item 2&lt;/div>
+            &lt;div>
+                &lt;details open>
+                    &lt;summary >catalog 3&lt;/summary>
+                    &lt;div>item 3&lt;/div>
+                    &lt;div>item 4&lt;/div>
+                &lt;/details>
+            &lt;/div>
+        &lt;/details>
+    &lt;/div>
+    &lt;div>item 5&lt;/div>
+&lt;/details>
+&lt;details open></div>
+            </div>
     </div>
     </div>
     </div>
