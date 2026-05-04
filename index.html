@@ -57,6 +57,7 @@
     body:has(#summation:target) .m_summation,
     body:has(#tooltip:target) .m_tooltip,
     body:has(#tooltip:target) .m_tooltip,
+    body:has(#grid_items:target) .m_grid_items,
     body:has(#tumbering_text:target) .m_tumbering_text,
     body:has(#tree_view:target) .m_tree_view{
         background-color: var(--light);
@@ -668,6 +669,29 @@
         top:-3px;left:-18px;
     }
 
+	.catalog_items{
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+		gap: 8px;
+		width:100%;
+		justify-content:center;
+		justify-items:center;
+	}
+    
+	.catalog_items > .item {
+        background-color:var(--light);
+        border-radius:8px;
+        border-top:2px solid var(--light);
+        border-bottom:2px solid var(--light);
+        height:64px;
+		width:64px;
+	}
+    
+	.catalog_items > .separator{
+        margin-top:8px;
+		grid-column: 1 / -1;
+	}
+    
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
@@ -682,6 +706,7 @@
 			<details open>
 				<summary>Components</summary>
                 <a class="m_gallery" href='#gallery'>Gallery</a>
+                <a class="m_grid_items" href='#grid_items'>Grid items</a>
                 <a class="m_menu_bar" href='#menu_bar'>Menu bar</a>
                 <a class="m_accordion" href='#accordion'>Accordion</a>
                 <a class="m_modal_window" href='#modal_window'>Modal window</a>
@@ -1842,7 +1867,6 @@ body{
 &lt;/div></div>
             </div>
             
-            
             <!-- tooltip -->
             <div class="page" id="tooltip">
                 <h1>Tooltip</h1>
@@ -1881,19 +1905,19 @@ body{
             <!-- tree_view -->
             <div class="page" id="tree_view">
                 <h1>Tree View</h1>
-                <div style="display:flex;align-items: start;justify-content:center;width:100%; height:280px;">
+                <div style="display:flex;align-items: start;justify-content:center;width:100%; height:230px;">
                     <div class="tree_view" style="width:128px;display:block;">
                         <details open>
-                            <summary >catalog 1</summary>
+                            <summary >Catalog 1</summary>
                             <div>item 0</div>
                             <div>
                                 <details open>
-                                    <summary >catalog 2</summary>
+                                    <summary >Catalog 2</summary>
                                     <div>item 1</div>
                                     <div>item 2</div>
                                     <div>
-                                        <details open>
-                                            <summary >catalog 3</summary>
+                                        <details>
+                                            <summary >Catalog 3</summary>
                                             <div>item 3</div>
                                             <div>item 4</div>
                                         </details>
@@ -1960,6 +1984,71 @@ details > div:first-of-type::before {content:'';
     &lt;div>item 5&lt;/div>
 &lt;/details>
 &lt;details open></div>
+            </div>
+            
+
+            <!-- grid_items -->
+            <div class="page" id="grid_items">
+                <h1>Tooltip</h1>
+                <div style="display:block;width:100%;">
+                    <div class="catalog_items">
+                        <div class="separator">separator: 1</div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="separator">separator: 2</div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                    </div>
+                </div>
+                <br>
+                <h1>CSS</h1>
+<div class="show_code">.catalog_items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+    gap: 8px;
+    width:100%;
+    justify-content:center;
+    justify-items:center;
+}
+
+.catalog_items > .item {
+    background-color:#aff;
+    height:64px;
+    width:64px;
+}
+
+.catalog_items > .separator {
+    grid-column: 1 / -1;
+}</div>
+                <h1>HTML</h1>
+<div class="show_code">&lt;div class="catalog_items">
+    &lt;div class="separator">separator: 1&lt;/div>
+    &lt;div class="item">&lt;/div>
+    &lt;div class="item">&lt;/div>
+    &lt;div class="item">&lt;/div>
+    &lt;div class="item">&lt;/div>
+    &lt;div class="item">&lt;/div>
+&lt;/div></div>
             </div>
     </div>
     </div>
