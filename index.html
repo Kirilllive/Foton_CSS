@@ -56,7 +56,6 @@
     body:has(#sidebar:target) .m_sidebar,
     body:has(#summation:target) .m_summation,
     body:has(#tooltip:target) .m_tooltip,
-    body:has(#tooltip:target) .m_tooltip,
     body:has(#grid_items:target) .m_grid_items,
     body:has(#tumbering_text:target) .m_tumbering_text,
     body:has(#tree_view:target) .m_tree_view{
@@ -540,7 +539,7 @@
     .sidebar .sidebar_button{
         position: absolute;
         display:flex;
-        right: -28px; top: 112px;
+        right: -28px; top: 32px;
         align-items: center;
         justify-content: center;
         background-color: var(--light);
@@ -551,8 +550,18 @@
     }
     .sidebar .sidebar_button:after {content: "\25B6";color:#fff;}
     .sidebar #sidebar_control:checked + .sidebar_button:after {content: "\25C4"; right:0px;color:#fff;}
-    .sidebar #sidebar_control:checked ~ .sidebar_panel {width:128px;padding:0 8px;}
-
+    .sidebar #sidebar_control:checked ~ .sidebar_panel {width:128px;padding:0 8px; border-radius:0 8px 8px 0;}
+    .sidebar .sidebar_button > .radius{position:absolute;left:0px;top:0px;}
+    .sidebar .sidebar_button > .radius:before{content:'';
+        width:8px;height:8px;display:block;
+        background-image: radial-gradient(ellipse at right bottom, transparent 8px,var(--light) 8px);
+        position:absolute;left:0px;top:32px;
+    }
+    .sidebar .sidebar_button > .radius:after{content:'';
+        width:8px;height:8px;display:block;
+        background-image: radial-gradient(ellipse at right top, transparent 8px,var(--light) 8px);
+        position:absolute;left:0px;top:-8px;
+    }
     .summation {
         display: flex;
         gap:8px;
@@ -680,6 +689,10 @@
     
 	.catalog_items > .item {
         background-color:var(--light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size:48px;
         border-radius:8px;
         border-top:2px solid var(--light);
         border-bottom:2px solid var(--light);
@@ -712,7 +725,6 @@
                 <a class="m_modal_window" href='#modal_window'>Modal window</a>
                 <a class="m_range_slider" href='#range_slider'>Range slider</a>
                 <a class="m_toggle" href='#toggle'>Toggle</a>
-                <a class="m_tooltip" href='#tooltip'>Tooltip</a>
                 <a class="m_tree_view" href='#tree_view'>Tree View</a>
                 <a class="m_sidebar" href='#sidebar'>Sidebar</a>
                 <a class="m_summation" href='#summation'>Summing</a>
@@ -728,6 +740,7 @@
 			</details>
 			<details open>
 				<summary>Text</summary>
+                <a class="m_tooltip" href='#tooltip'>Tooltip</a>
                 <a class="m_typing_text" href='#typing_text'>Typing text</a>
                 <a class="m_tumbering_text" href='#tumbering_text'>Numbering in text</a>
 			</details>
@@ -1750,7 +1763,7 @@ body{
                     <div style="display:block;height:256px;width:256px;position:relative; background-color: var(--shadow); border-radius:8px; overflow:hidden;">
                         <div style="position:absolute;left:0px;top:0px;height:100%;"><div class="sidebar">
                             <input type="checkbox" id="sidebar_control" style="display:none;">
-                            <label for="sidebar_control" class="sidebar_button"> </label>
+                            <label for="sidebar_control" class="sidebar_button"><span class="radius"></span></label>
                             <div class="sidebar_panel">
                                 content
                             </div>
@@ -1773,7 +1786,7 @@ body{
     height:512px;
     width:0px;
 }
-.sidebar .sidebar_button{
+.sidebar .sidebar_button {
     position: absolute;
     display:flex;
     right: -32px; top: 0;
@@ -1891,7 +1904,7 @@ body{
 }
 
 /* Show menu on hover */
-    .tooltip:hover > div{
+.tooltip:hover > div{
     display: block;
 }</div>
                 <h1>HTML</h1>
@@ -1992,32 +2005,38 @@ details > div:first-of-type::before {content:'';
                 <h1>Tooltip</h1>
                 <div style="display:block;width:100%;">
                     <div class="catalog_items">
+                    
+                    
+                    
+<!--  ⓬⓭⓮  -->
                         <div class="separator">separator: 1</div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
+                        <div class="item">➊</div>
+                        <div class="item">➋</div>
+                        <div class="item">➌</div>
+                        <div class="item">➍</div>
+                        <div class="item">➎</div>
+                        <div class="item">➏</div>
+                        <div class="item">➐</div>
+                        <div class="item">➑</div>
+                        <div class="item">➒</div>
+                        <div class="item">➓</div>
+                        <div class="item">➊</div>
+                        <div class="item">➋</div>
+                        <div class="item">➌</div>
+                        <div class="item">➍</div>
+                        <div class="item">➎</div>
+                        <div class="item">➏</div>
                         <div class="separator">separator: 2</div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
-                        <div class="item"></div>
+                        <div class="item">➀</div>
+                        <div class="item">➁</div>
+                        <div class="item">➂</div>
+                        <div class="item">➃</div>
+                        <div class="item">➄</div>
+                        <div class="item">➅</div>
+                        <div class="item">➆</div>
+                        <div class="item">➇</div>
+                        <div class="item">➈</div>
+                        <div class="item">➉</div>
                     </div>
                 </div>
                 <br>
