@@ -53,6 +53,7 @@
     body:has(#displacement:target) .m_displacement,
     body:has(#typing_text:target) .m_typing_text,
     body:has(#anim_frames:target) .m_anim_frames,
+    body:has(#ascii_frames:target) .m_ascii_frames,
     body:has(#sidebar:target) .m_sidebar,
     body:has(#summation:target) .m_summation,
     body:has(#tooltip:target) .m_tooltip,
@@ -520,6 +521,27 @@
         from{background-position-x:0px;}
         to{background-position-x:-3328px;}
     }
+
+	.anim_text::after {
+        white-space: pre;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+		content: "-  ⠇  1";
+		font-family: monospace;
+        font-size:32px;
+		animation: ascii_anim 1s linear infinite;
+	}
+	@keyframes ascii_anim {
+		0%		{ content: "-  ⠇  1"; }
+		12.5%	{ content: "\\  ⠋  2"; }
+		25%	    { content: "|  ⠙  3"; }
+		37.5%	{ content: "/  ⠸  4"; }
+		50%		{ content: "-  ⢰  5"; }
+		62.5%	{ content: "\\  ⣠  6"; }
+		75%     { content: "|  ⣄  7"; }
+		87.5%	{ content: "/  ⡆  8"; }
+	}
     
     .sidebar{
         display:block;
@@ -740,6 +762,7 @@
 			</details>
 			<details open>
 				<summary>Text</summary>
+                <a class="m_ascii_frames" href='#ascii_frames'>ASCII animation</a>
                 <a class="m_tooltip" href='#tooltip'>Tooltip</a>
                 <a class="m_typing_text" href='#typing_text'>Typing text</a>
                 <a class="m_tumbering_text" href='#tumbering_text'>Numbering in text</a>
@@ -891,7 +914,7 @@
                     <ul class="navbar">
                         <li class="folder">Menu<ul>
                                 <li>item</li>
-                                <li class="folder">folder<ul>
+                                <li class="folder">Catalog<ul>
                                         <li>item</li>
                                         <hr>
                                         <li>item</li>
@@ -924,9 +947,9 @@
 .navbar li:hover,.navbar ul li:hover{background-color:#faf;}</div>
                 <h1>HTML</h1>
 <div class="show_code">&lt;ul class="navbar">
-    &lt;li class="folder">folder&lt;ul>
+    &lt;li>Menu&lt;ul>
             &lt;li>item&lt;/li>
-            &lt;li class="folder">folder&lt;ul>
+            &lt;li>Catalog&lt;ul>
                     &lt;li>item&lt;/li>
                     &lt;li>item&lt;/li>
                     &lt;li>item&lt;/li>
@@ -1840,7 +1863,36 @@ body{
                 <h1>HTML</h1>
                 <div class="show_code">&lt;div class="anim_frames">&lt;/div></div>
             </div>
-        
+
+
+            <!-- ascii_frames -->
+            <div class="page" id="ascii_frames">
+                <h1>frame-by-frame animation of text symbols</h1>
+                <div style="display:flex;align-items: center;justify-content:center; width:100%; height:220px;">
+                    <div class="anim_text"></div>
+                </div>
+                <br>
+                <h1>CSS</h1>
+<div class="show_code">.anim_text::after {
+    content: "⠇";
+    font-family: monospace;
+    animation: ascii_anim 2s linear infinite;
+}
+
+@keyframes ascii_anim {
+    0%      { content: "⠇"; }
+    12.5%   { content: "⠋"; }
+    25%     { content: "⠙"; }
+    37.5%   { content: "⠸"; }
+    50%     { content: "⢰"; }
+    62.5%   { content: "⣠"; }
+    75%     { content: "⣄"; }
+    87.5%   { content: "⡆"; }
+}</div>
+                <h1>HTML</h1>
+                <div class="show_code">text animation: &lt;span class="anim_text">&lt;/span></div>
+            </div>
+            
             <!-- summation -->
             <div class="page" id="summation">
                 <h1>Summing the values ​​in the elements (Shopping cart)</h1>
@@ -1882,7 +1934,7 @@ body{
             
             <!-- tooltip -->
             <div class="page" id="tooltip">
-                <h1>Tooltip</h1>
+                <h1>A tooltip appears when you hover over an element or text.</h1>
                 <div style="display:flex;align-items: center;justify-content:start;width:100%; height:120px;">
                     <div>On <span class="tooltip"><span>desktop</span><div>a personal computer designed to fit on a desk</div></span>, it is used in conjunction with a <span class="tooltip"><span>cursor</span><div>an indicator used to show the current position for user interaction on a computer monitor or other display device</div></span>. the <span class="tooltip"><span>tooltip</span><div>Displays information about that element.</div></span> appears when a user hovers the pointer over an item without clicking it.</div>
                 </div>
@@ -1912,6 +1964,10 @@ body{
     &lt;span>tooltip&lt;/span>
     &lt;div>Content&lt;/div>
 &lt;/span>
+
+&lt;!-- or -->
+
+&lt;p>Text &lt;span class="tooltip">&lt;span>tooltip&lt;/span>&lt;div>Content&lt;/div>&lt;/span> text&lt;/p>
 </div>
             </div>
         
