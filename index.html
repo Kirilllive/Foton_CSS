@@ -781,6 +781,37 @@
     #spreadsheet_table tr:nth-child(n+2) td:nth-child(1)::before {
         content: counter(rowNumber);
     }
+    
+    
+    
+/* slide switch buttons */
+.modal .controll:checked ~ .modal_bg {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal .controll {display:none;}
+
+.modal_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+/* Window styles */
+.modal .window {
+    background-color:#fff;
+    padding: 16px;
+}
+
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
@@ -833,12 +864,12 @@
                 <div style="text-align:center;margin:64px 0;">
                     <h1>This site's repository on GitHub</h1>
                     <br><a href="https://github.com/Kirilllive/Foton_CSS" target='_blank' draggable="false"><p><img src="img/github.svg" draggable="false"></p></a>
-                </div><br>
-                <div style="text-align:center;margin:64px 0;">
-                    <h1>You can support the project on Patreon or Boosty!</h1>
-                    <br><a href="https://www.patreon.com/kirill_live" target='_blank' draggable="false"><p><img src="img/patreon.svg" draggable="false"></p></a>
-                    <br><a href="https://boosty.to/kirilllive" target='_blank' draggable="false"><p><img src="img/boosty.svg" draggable="false"></p></a>
                 </div>
+<!--                <br><div style="text-align:center;margin:64px 0;">-->
+<!--                    <h1>You can support the project on Patreon or Boosty!</h1>-->
+<!--                    <br><a href="https://www.patreon.com/kirill_live" target='_blank' draggable="false"><p><img src="img/patreon.svg" draggable="false"></p></a>-->
+<!--                    <br><a href="https://boosty.to/kirilllive" target='_blank' draggable="false"><p><img src="img/boosty.svg" draggable="false"></p></a>-->
+<!--                </div>-->
             </div>
             <!-- multi_page -->
             <div class="page" id="multi_page" style="">
