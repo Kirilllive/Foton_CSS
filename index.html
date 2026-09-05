@@ -60,6 +60,7 @@
     body:has(#grid_items:target) .m_grid_items,
     body:has(#tumbering_text:target) .m_tumbering_text,
     body:has(#spreadsheet:target) .m_spreadsheet,
+    body:has(#look_at:target) .m_look_at,
     body:has(#tree_view:target) .m_tree_view{
         background-color: var(--light);
         color: #000;
@@ -811,6 +812,41 @@
     padding: 16px;
 }
 
+.look_at {
+    position:relative;
+    display:block;
+    width:100%;
+    height:100%;
+    display: grid;
+    grid-template-columns: auto 128px auto;
+    grid-template-rows: repeat(3, 1fr);
+    transform-style: preserve-3d;
+    perspective-origin: center;
+    perspective: 800px;
+}
+.look_at .look {
+    /*border:1px solid #fff;*/
+    position:absolute;
+    display:block;
+    left:calc(50% - 128px);
+    top:calc(50% - 128px);
+    width:256px;
+    height:256px;
+    transform-style: preserve-3d;
+    transition: transform 0.75s ;
+    pointer-events: none;
+    background: no-repeat center / auto 92% url("data:image/svg+xml,%3csvg width='128' height='128' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg stroke='%23fff' stroke-width='8'%3e%3ccircle cx='64' cy='64' r='56'/%3e%3cpath d='M42 47V61M86 47V61M87 88C84 91 80 93 76 95C72 97 68 98 64 98C59 98 55 97 51 95C47 93 43 91 40 88' stroke-linecap='round'/%3e%3c/g%3e%3c/svg%3e");
+}
+
+.look_at .UL:hover ~ .look{transform:rotateY(-25deg) rotateX(25deg);}
+.look_at .UP:hover ~ .look{transform:rotateY(0deg) rotateX(40deg);}
+.look_at .UR:hover ~ .look{transform:rotateY(25deg) rotateX(25deg);}
+.look_at .LF:hover ~ .look{transform:rotateY(-40deg) rotateX(0deg);}
+.look_at .FR:hover ~ .look{transform:rotateY(40deg) rotateX(0deg);}
+.look_at .DL:hover ~ .look{transform:rotateY(-25deg) rotateX(-25deg);}
+.look_at .DN:hover ~ .look{transform:rotateY(0deg) rotateX(-40deg);}
+.look_at .DR:hover ~ .look{transform:rotateY(25deg) rotateX(-25deg);}
+
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
@@ -842,6 +878,7 @@
                 <a class="m_anim_frames" href='#anim_frames'>Frame animation</a>
                 <a class="m_parallax_background" href='#parallax_background'>Parallax background</a>
                 <a class="m_lava_effect" href='#lava_effect'>Lava / Liquid effect</a>
+                <a class="m_look_at" href='#look_at'>Look At</a>
                 <a class="m_gradient_blur" href='#gradient_blur'>Gradient blur</a>
                 <a class="m_displacement" href='#displacement'>Displacement</a>
 			</details>
@@ -1949,6 +1986,75 @@ body{
                 <div class="show_code">&lt;div class="anim_frames">&lt;/div></div>
             </div>
 
+            <!-- Look At -->
+            <div class="page" id="look_at">
+                <h1>Look at the cursor.</h1>
+                <div style="display:flex;align-items: center;justify-content:center; width:100%; height:256px;">
+                    <div class="look_at">
+                        <div class="UL"></div>
+                        <div class="UP"></div>
+                        <div class="UR"></div>
+                        <div class="LF"></div>
+                        <div></div>
+                        <div class="FR"></div>
+                        <div class="DL"></div>
+                        <div class="DN"></div>
+                        <div class="DR"></div>
+                        <div class="look"></div>
+                    </div>
+                </div>
+                <br>
+                <h1>CSS</h1>
+<div class="show_code">.look_at {
+    position:relative;
+    display:block;
+    width:512px;
+    height:512px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    transform-style: preserve-3d;
+    perspective-origin: center;
+    perspective: 800px;
+    border:1px solid rgba(0,0,0);
+}
+.look_at .look {
+    position: absolute;
+    display: block;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.75s;
+    pointer-events: none;
+    background: no-repeat center / contain url("data:image/svg+xml,%3csvg width='128' height='128' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg stroke='black' stroke-width='8'%3e%3ccircle cx='64' cy='64' r='56'/%3e%3cpath d='M42 47V61M86 47V61M87 88C84 91 80 93 76 95C72 97 68 98 64 98C59 98 55 97 51 95C47 93 43 91 40 88' stroke-linecap='round'/%3e%3c/g%3e%3c/svg%3e");
+}
+
+.look_at .UL:hover ~ .look{transform: rotateY(-25deg) rotateX(25deg);}
+.look_at .UP:hover ~ .look{transform: rotateY(0deg) rotateX(40deg);}
+.look_at .UR:hover ~ .look{transform: rotateY(25deg) rotateX(25deg);}
+.look_at .LF:hover ~ .look{transform: rotateY(-40deg) rotateX(0deg);}
+.look_at .FR:hover ~ .look{transform: rotateY(40deg) rotateX(0deg);}
+.look_at .DL:hover ~ .look{transform: rotateY(-25deg) rotateX(-25deg);}
+.look_at .DN:hover ~ .look{transform: rotateY(0deg) rotateX(-40deg);}
+.look_at .DR:hover ~ .look{transform: rotateY(25deg) rotateX(-25deg);}</div>
+                <h1>HTML</h1>
+                <div class="show_code">&lt;div class="look_at">
+    &lt;div class="UL">&lt;/div>
+    &lt;div class="UP">&lt;/div>
+    &lt;div class="UR">&lt;/div>
+    &lt;div class="LF">&lt;/div>
+    &lt;div>&lt;/div>
+    &lt;div class="FR">&lt;/div>
+    &lt;div class="DL">&lt;/div>
+    &lt;div class="DN">&lt;/div>
+    &lt;div class="DR">&lt;/div>
+    &lt;div class="look">&lt;/div>
+&lt;/div></div>
+            </div>
+
+
 
             <!-- ascii_frames -->
             <div class="page" id="ascii_frames">
@@ -1977,6 +2083,7 @@ body{
                 <h1>HTML</h1>
                 <div class="show_code">text animation: &lt;span class="anim_text">&lt;/span></div>
             </div>
+            
             
             <!-- summation -->
             <div class="page" id="summation">
