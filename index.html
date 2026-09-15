@@ -105,7 +105,7 @@
         padding: 16px 16px 0px 16px;
         position:relative;
     }
-    .content:after{
+    .content:after {
         z-index:-2;
         content:"";
         position:absolute;
@@ -142,7 +142,7 @@
         display:block;
         padding:8px 0 8px 26px;
     }
-    .show_code{
+    .show_code {
         background-color:#fff;
         padding:16px;
         border-radius:12px;
@@ -169,7 +169,7 @@
         bottom:-4px;left:4px;
     }
     .gallery input[type="radio"]:checked ~ .image {display:block;}
-    .gallery label{
+    .gallery label {
         display:block;
         height: 92px; width: 92px;
         background-repeat: no-repeat;
@@ -192,7 +192,7 @@
         background-repeat: no-repeat;
         background-size: contain;
     }
-    .gallery .image{
+    .gallery .image {
         position: absolute;
         background-color:var(--light);
         left: 0px; top: 0;
@@ -205,14 +205,14 @@
         display:none;
         object-fit: contain;
     }
-    .gallery .slides{
+    .gallery .slides {
         display:grid;
         justify-items:center;
         align-items:end;
         width: max-content;
         gap: 8px;
     }
-	.navbar,.navbar ul{
+	.navbar,.navbar ul {
 		white-space: nowrap;
 		background-color: var(--shadow);
         backdrop-filter: blur(16px);
@@ -223,18 +223,18 @@
         outline-offset:-1px;
 		list-style-type:none;
 	}
-    .navbar ul{
+    .navbar ul {
 		display: none;
 		position: absolute;
 		top: 0px;
 		left:calc(100% - 6px);
     }
 	.navbar li:hover > ul {display: block;}
-	.navbar .folder:{
+	.navbar .folder {
         padding-right:20px;
         position:relative;
     }
-	.navbar .folder:after{
+	.navbar .folder:after {
         content:"\25b6";
         font-size:10px;
         position:absolute;
@@ -249,13 +249,13 @@
 		padding: 4px 8px;
         cursor: pointer;
 	}
-	.navbar ul li{float:none;}
+	.navbar ul li {float:none;}
 	.navbar li:hover , .navbar ul li:hover {
         background-color:#fff;
         border-radius:8px;
         color:#000;
     }
-    .save{
+    .save {
         display:inline-block;
         transform:translateY(3px);
         background-image:url("data:image/svg+xml,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10 6H13L8 11L3 6H6V1H10V6Z' fill='white'/><rect x='1' y='12' width='14' height='2' fill='white'/></svg>");
@@ -295,7 +295,7 @@
         content: 'close';
     }
     @keyframes moving_bg {100%{background-position:-64px 64px;}}
-    .example_moving_bg{
+    .example_moving_bg {
         border-radius:8px;
         border:1px solid var(--light);
         background:var(--bg);
@@ -332,12 +332,12 @@
         opacity: 1;
         pointer-events: auto;
     }
-    .modal *{color:#000;}
+    .modal * {color:#000;}
     body:has(.modal .controll:checked) {
         overflow: hidden;
     }
     
-    .modal_window{
+    .modal_window {
         cursor:pointer;
         display:flex;
         background-size:cover;
@@ -383,8 +383,8 @@
         border-top:2px solid var(--light);
         border-bottom:2px solid var(--light);
     }
-    .modal .window h1{margin-bottom:7px;}
-    .modal .window div{
+    .modal .window h1 {margin-bottom:7px;}
+    .modal .window div {
         background-size:cover;
         background-repeat:no-repeat;
         background-position:center;
@@ -393,7 +393,7 @@
         border-radius:10px;
     }
 
-    .modal .window label{
+    .modal .window label {
         color:#000;
         font-size:32px;
         top:7px;right:8px;
@@ -416,10 +416,10 @@
             show_text calc(var(--n)*.04s) steps(var(--n)) infinite alternate;
     }
 
-    @keyframes show_text{
+    @keyframes show_text {
         from {background-size:0 200%}
     }
-    @keyframes end_cursor{
+    @keyframes end_cursor {
         50% {background-position:0 2ch,0 0}
     }
     
@@ -429,8 +429,8 @@
     @media screen and (min--moz-device-pixel-ratio:0) {
         .typing_text:after{content:"Your Mozilla browser";font-size:20px;font-weight:bold;}
     }
-    .toggle input{display:none;}
-    .toggle label{
+    .toggle input {display:none;}
+    .toggle label {
         position:relative;
         display:block;
         background-color: var(--light);
@@ -440,7 +440,7 @@
         cursor: pointer;
         box-shadow:0px 4px 25px var(--shadow);
     }
-    .toggle label:before{
+    .toggle label:before {
         position:absolute;
         display:block;
         content:"";
@@ -468,7 +468,7 @@
     }
 
     /* chromium */
-    .range_slider[type="range" i]::-webkit-slider-thumb{
+    .range_slider[type="range" i]::-webkit-slider-thumb {
         height: 11px;
         width: 11px;
         background: #fff;
@@ -487,7 +487,7 @@
         -moz-appearance: none;
         appearance: none;
     }
-    .gradient_blur:before{
+    .gradient_blur:before {
         position: absolute;
         top: 0;
         left: 0;
@@ -502,7 +502,7 @@
         counter-reset:list;
         list-style: none;
     }
-    li > .tumbering_text{padding-left:28px;}
+    li > .tumbering_text {padding-left:28px;}
     .tumbering_text div {
           margin:8px 0;
      }
@@ -511,14 +511,14 @@
         content: counters(list, ".") " ";
         font-weight: bold;
     }
-    .anim_frames{
+    .anim_frames {
         display:block;
         width:256px;
         height:256px;
         animation: anim_frames 1.5s steps(13) infinite alternate ;
         background-image:url("img/anim_frames.png");
     }
-    @keyframes anim_frames{
+    @keyframes anim_frames {
         from{background-position-x:0px;}
         to{background-position-x:-3328px;}
     }
@@ -544,7 +544,7 @@
 		87.5%	{ content: "/  ⣗  8"; }
 	}
     
-    .sidebar{
+    .sidebar {
         display:block;
         position:relative;
         height:100%;
@@ -559,7 +559,7 @@
         height:100%;
         width:0px;
     }
-    .sidebar .sidebar_button{
+    .sidebar .sidebar_button {
         position: absolute;
         display:flex;
         right: -28px; top: 32px;
@@ -574,13 +574,13 @@
     .sidebar .sidebar_button:after {content: "\25B6";color:#fff;}
     .sidebar #sidebar_control:checked + .sidebar_button:after {content: "\25C4"; right:0px;color:#fff;}
     .sidebar #sidebar_control:checked ~ .sidebar_panel {width:128px;padding:0 8px; border-radius:0 8px 8px 0;}
-    .sidebar .sidebar_button > .radius{position:absolute;left:0px;top:0px;}
-    .sidebar .sidebar_button > .radius:before{content:'';
+    .sidebar .sidebar_button > .radius {position:absolute;left:0px;top:0px;}
+    .sidebar .sidebar_button > .radius:before {content:'';
         width:8px;height:8px;display:block;
         background-image: radial-gradient(ellipse at right bottom, transparent 8px,var(--light) 8px);
         position:absolute;left:0px;top:32px;
     }
-    .sidebar .sidebar_button > .radius:after{content:'';
+    .sidebar .sidebar_button > .radius:after {content:'';
         width:8px;height:8px;display:block;
         background-image: radial-gradient(ellipse at right top, transparent 8px,var(--light) 8px);
         position:absolute;left:0px;top:-8px;
@@ -598,7 +598,7 @@
     .summation > .total-sum::after {
         content: counter(total-price);
     }
-    .summation > .total-sum{
+    .summation > .total-sum {
         padding:2px 16px;
     }
     .summation label {
@@ -619,12 +619,12 @@
         position: relative;
         display: inline-block;
     }
-    .tooltip > span{
+    .tooltip > span {
         cursor: pointer;
         text-decoration: underline;
         font-weight: bold;
     }
-    .tooltip > div{
+    .tooltip > div {
         display: none;
         position: absolute;
 		background-color: #fff;
@@ -637,7 +637,7 @@
         box-shadow:0px 4px 25px var(--shadow);
         z-index: 1;
     }
-    .tooltip > div:after{
+    .tooltip > div:after {
         content: "";
         height: 0;
         position: absolute;
@@ -650,7 +650,7 @@
         border-color: transparent transparent white transparent;
     }
     
-   .tooltip > div:before{
+   .tooltip > div:before {
         top: -10px;
         left: -8px;
         content: "";
@@ -660,24 +660,24 @@
         width: calc(100% + 16px);
     }
     
-    .tooltip:hover > div{
+    .tooltip:hover > div {
         display: block;
     }
 
-    .tree_view summary{
+    .tree_view summary {
         list-style: none;
         width: 92px;
         cursor:pointer;
         user-select:none;
     }
     
-    .tree_view details > div{
+    .tree_view details > div {
         margin:4px 4px 4px 22px;
         position:relative;
         width: 92px;
     }
 
-    .tree_view details > div:not(:last-child) > details::before{content:'';
+    .tree_view details > div:not(:last-child) > details::before {content:'';
         width:12px;
         height:calc(100% - 24px);
         display:block;
@@ -686,7 +686,7 @@
         border-left:1px solid var(--light);
     }
 
-    .tree_view details > div::before{content:'';
+    .tree_view details > div::before {content:'';
         width:12px;
         height:27px;
         display:block;
@@ -696,12 +696,12 @@
         border-bottom:1px solid var(--light);
     }
         
-    .tree_view details > div:first-of-type::before{content:'';
+    .tree_view details > div:first-of-type::before {content:'';
         height:14px;
         top:-3px;left:-18px;
     }
 
-	.catalog_items{
+	.catalog_items {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
 		gap: 8px;
@@ -723,7 +723,7 @@
 		width:64px;
 	}
     
-	.catalog_items > .separator{
+	.catalog_items > .separator {
         margin-top:8px;
 		grid-column: 1 / -1;
 	}
@@ -732,7 +732,7 @@
         border-collapse: separate;
         background-color:var(--fon);
     }
-    #spreadsheet_table td{
+    #spreadsheet_table td {
         border-style: solid;
         border-width: 0 1px 1px 0;
         border-color: var(--light);
@@ -740,7 +740,7 @@
         min-width:60px;
         min-height:42px;
     }
-    #spreadsheet_table tr:first-child td:first-child{
+    #spreadsheet_table tr:first-child td:first-child {
         background-color:#fff;
         border-color: var(--fon);
         min-width:20px;
@@ -749,7 +749,7 @@
         left: 0px;
         top: 0px;
     }
-    #spreadsheet_table tr:first-child td:nth-child(n+2){
+    #spreadsheet_table tr:first-child td:nth-child(n+2) {
         background-color:#fff;
         border-color: var(--fon);
         color:#888;
@@ -763,7 +763,7 @@
     #spreadsheet_table tr:first-child td:nth-child(n+2)::before {
       content: counter(columNumber, upper-alpha);
     }
-    #spreadsheet_table tr:nth-child(n+2) td:nth-child(1){
+    #spreadsheet_table tr:nth-child(n+2) td:nth-child(1) {
         background-color:#fff;
         border-color: var(--fon);
         text-align:center;
