@@ -61,6 +61,7 @@
     body:has(#tumbering_text:target) .m_tumbering_text,
     body:has(#spreadsheet:target) .m_spreadsheet,
     body:has(#look_at:target) .m_look_at,
+    body:has(#marquee:target) .m_marquee,
     body:has(#tree_view:target) .m_tree_view{
         background-color: var(--light);
         color: #000;
@@ -852,6 +853,34 @@
 .look_at .DRC:hover ~ .look{transform:rotateY(14deg) rotateX(-32deg);}
 .look_at .DR:hover ~ .look{transform:rotateY(25deg) rotateX(-25deg);}
 
+.marquee {
+    overflow: hidden;
+    position:relative;
+    white-space: nowrap;
+    position:relative;
+    background-color: var(--shadow);
+    box-shadow: 0px 4px 25px var(--shadow);
+    width:100%;
+    height: 32px;
+    border-radius:8px;
+    color: #fff;
+}
+
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+.marquee-track {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    align-items: center;
+    top: 0px;
+    animation: scroll-marquee 16s linear infinite;
+}
+@keyframes scroll-marquee {
+    0% {left:100%; transform: translateX(0%);}
+    100% {left:0%; transform: translateX(-100%);}
+}
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
@@ -892,6 +921,7 @@
                 <a class="m_ascii_frames" href='#ascii_frames'>ASCII animation</a>
                 <a class="m_tooltip" href='#tooltip'>Tooltip</a>
                 <a class="m_typing_text" href='#typing_text'>Typing text</a>
+                <a class="m_marquee" href='#marquee'>Marquee / Ticker</a>
                 <a class="m_tumbering_text" href='#tumbering_text'>Numbering in text</a>
 			</details>
         <!-- page switch button -->
@@ -2134,6 +2164,52 @@ body{
 
     &lt;div class="total-sum">Total: &lt;/div>
 &lt;/div></div>
+            </div>
+        
+            
+            <!-- Marquee / Ticker -->
+            <div class="page" id="marquee">
+                <h1>Marquee / Ticker</h1>
+                <div style="display:flex;align-items: center;justify-content:center; width:100%; height:128px;">
+                    <div class="marquee">
+                        <div class="marquee-track">★ A ticker display designed to show text and graphic information ★ </div>
+                    </div>
+                </div>
+                <br>
+                <h1>CSS</h1>
+<div class="show_code">.marquee {
+    overflow: hidden;
+    position:relative;
+    white-space: nowrap;
+    position:relative;
+    background: #222;
+    height:1.5em;
+    color: #fff;
+}
+
+/* stopping line animation */
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* content line */
+.marquee-track {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    animation: scroll-marquee 16s linear infinite;
+}
+
+@keyframes scroll-marquee {
+    0% {left:100%; transform: translateX(0%);}
+    100% {left:0%; transform: translateX(-100%);}
+}</div>
+
+                <h1>HTML</h1>
+<div class="show_code">&lt;div class="marquee">
+    &lt;div class="marquee-track"> ★ text or element ★ &lt;/div>
+&lt;/div></div>
+
             </div>
             
             <!-- tooltip -->
