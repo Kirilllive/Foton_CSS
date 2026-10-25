@@ -881,6 +881,38 @@
     0% {left:100%; transform: translateX(0%);}
     100% {left:0%; transform: translateX(-100%);}
 }
+
+.scrolling_animation {
+    background: var(--bg);
+    background-size: 64px 64px;
+    display: block;
+    position: relative;
+    contain: paint;
+    width: 100%;
+    height: 400%;
+}
+.scrolling_animation > .timeline{
+    position: sticky;
+    top: 4px;
+    left: 4px;
+    width: 100%;
+    min-width: 16px;
+    height: 16px;
+    border-radius:8px;
+    background-color: #fff;
+    box-shadow:0px 4px 25px var(--shadow);
+    animation: fade-out linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 100%;
+}
+@keyframes fade-out {
+    from {
+        width: 0%;
+    } to {
+        width: calc(100% - 8px);
+    }
+}
+            
 </style>
 <body>
     <div style="display:flex;align-items: center;justify-content:center;width:100%;"><img src="logo.svg" width="376" height="72" style="object-fit: cover;margin-top:42px;" draggable="false"></div>
@@ -907,12 +939,16 @@
                 <a class="m_spreadsheet" href='#spreadsheet'>Spreadsheet</a>
 			</details>
 			<details open>
-				<summary>Design</summary>
+				<summary>Animation</summary>
                 <a class="m_moving_background" href='#moving_background'>Moving background</a>
                 <a class="m_track_animation" href='#track_animation'>Track animation</a>
+                <a class="m_timeline_scrolling_animation" href='#timeline_scrolling_animation'>Timeline scrolling animation</a>
                 <a class="m_anim_frames" href='#anim_frames'>Frame animation</a>
-                <a class="m_parallax_background" href='#parallax_background'>Parallax background</a>
                 <a class="m_lava_effect" href='#lava_effect'>Lava / Liquid effect</a>
+			</details>
+			<details open>
+				<summary>Design</summary>
+                <a class="m_parallax_background" href='#parallax_background'>Parallax background</a>
                 <a class="m_look_at" href='#look_at'>Look At</a>
                 <a class="m_gradient_blur" href='#gradient_blur'>Gradient blur</a>
                 <a class="m_displacement" href='#displacement'>Displacement</a>
@@ -2644,6 +2680,57 @@ details > div:first-of-type::before {content:'';
 &lt;/details>
 &lt;details open></div>
             </div>
+            
+            
+            
+            
+            
+            
+            
+            
+        
+            <!-- timeline_scrolling_animation -->
+            <div class="page" id="timeline_scrolling_animation">
+                <h1>Timeline scrolling animation</h1>
+                <p>Works only in Chromium.</p>
+                <div style="display:block;width:100%;height:230px;overflow-y:scroll; border-radius:8px; border:1px solid var(--light);">
+                    <div class="scrolling_animation">
+                        <div class="timeline"></div>
+                    </div>
+                </div>
+                <br>
+                <h1>CSS</h1>
+<div class="show_code">.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #faf;
+    animation: fade-out linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 100%;
+}
+
+@keyframes fade-out {
+    from {
+        width: 0%;
+    } to {
+        width: 100%;
+    }
+}</div>
+                <h1>HTML</h1>
+<div class="show_code">&lt;div class="progress-bar"> &lt;/div></div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
 
             <!-- grid_items -->
